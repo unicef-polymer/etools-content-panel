@@ -13,7 +13,10 @@ It also has a disabled state.
 All properties of the element are not required. 
 Title style property can contain a combination between alignment classes: align-center and align-right and the uppercase class.
 
-
+## Install
+```bash
+$ bower install --save etools-content-panel
+```
 
 ## Preview element locally
 
