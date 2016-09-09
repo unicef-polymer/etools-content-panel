@@ -3,7 +3,7 @@
   "description": "A simple panel with heading to display content in an organized manner. ",
   "private": true,
   "version": 1.0,
-  "license": "Apache2",
+  "license": "https://github.com/unicef-polymer/etools-content-panel/blob/master/LICENSE.md",
   "main": "etools-content-panel.html",
   "dependencies": {
     "polymer": "Polymer/polymer#^1.4.0"
