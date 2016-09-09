@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+  <head>
+    <title>etools-content-panel demo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+
+    <link rel="import" href="../etools-content-panel.html">
+
+    <style is="custom-style" include="demo-pages-shared-styles">
+      .vertical-section-container {
+        max-width: 900px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="vertical-section-container centered">
+      <h1>etools-content-panel demo</h1>
+
+      <p>Panel title can be aligned: left (default), center and right.</p>
+      <demo-snippet>
+        <template>
+          <etools-content-panel title="Panel title">
+            Your content goes here...
+          </etools-content-panel>
+          <etools-content-panel title="Panel title" title-style="align-center">
+            Your content goes here...
+          </etools-content-panel>
+          <etools-content-panel title="Panel title" title-style="align-right">
+            Your content goes here...
+          </etools-content-panel>
+        </template>
+      </demo-snippet>
+
+      <p>You can also make it uppercase.</p>
+      <demo-snippet>
+        <template>
+          <etools-content-panel title="Panel title" title-style="uppercase">
+            Your content goes here...
+          </etools-content-panel>
+        </template>
+      </demo-snippet>
+
+      <p>In case you do not need the header use noHeader attribute to remove it.</p>
+      <demo-snippet>
+        <template>
+          <etools-content-panel title="Panel title" no-header="true">
+            Your content goes here...
+          </etools-content-panel>
+        </template>
+      </demo-snippet>
+
+      <p>Disable state. This will not affect the content elements you add to panel. It only changes the text color to #9b9b9b.</p>
+      <demo-snippet>
+        <template>
+          <etools-content-panel title="Panel title" title-style="align-center" is-disabled="true">
+            Your content goes here...
+          </etools-content-panel>
+        </template>
+      </demo-snippet>
+
+    </div>
+
+  </body>
+</html>

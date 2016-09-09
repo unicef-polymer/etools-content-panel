@@ -1,0 +1,17 @@
+{
+  "name": "etools-content-panel",
+  "description": "A simple panel with heading to display content in an organized manner. ",
+  "private": true,
+  "version": 1.0,
+  "license": "Apache2",
+  "main": "etools-content-panel.html",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.4.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.0.0",
+    "web-component-tester": "^4.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
+  }
+}

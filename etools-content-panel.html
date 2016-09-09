@@ -1,0 +1,105 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<!--
+`etools-content-panel`
+
+A simple panel with heading to display content in an organized manner.
+You can chose to display or to not display the header and align the title: left, center and right, make it uppercase.
+It also has a disabled state. Check the demo page for examples.
+
+### Styling
+
+You can use defined variables and mixins to change panel style.
+
+Custom property | Description | Default
+----------------|-------------|----------
+`--panel-border-color` | Panel border color | `#dedede`
+`--etools-content-panel-shadow-color` | CSS box-shadow color | `#333333`
+`--etools-content-panel-title-color` | Title color | `#687254`
+`--etools-panel-header-background` | Mixin applied to the header | `{}`
+`--etools-content-panel-content-bg-color` | Content background color | `#ffffff`
+`--etools-content-panel-disabled-color` | Content disabled text color | `#9b9b9b`
+
+@demo demo/index.html 
+-->
+
+<dom-module id="etools-content-panel">
+  <template>
+    <style>
+      .content-panel-wrapper {
+        border: 1px solid var(--panel-border-color, #dedede);
+        border-radius: 4px;
+        box-shadow: 0 4px 10px -7px var(--etools-content-panel-shadow-color, #333333);
+        margin-top: 20px;
+      }
+      .panel-header {
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAIAAABvrngfAAAALklEQVQImWM8+nA2AwODkJAQAwwwofHfvXvHhMaHqkLmCwkJMaHxoaqQ+QwMDADJhRGDAz83qAAAAABJRU5ErkJggg==);
+        margin: 0;
+        padding: 10px 20px;
+        color: var(--etools-content-panel-title-color, #687254);
+        font-size: 16px;
+        text-align: left;
+        @apply(--etools-panel-header-background);
+      }
+      .uppercase {
+        text-transform: uppercase;
+      }
+      .align-center {
+        text-align: center;
+      }
+      .align-right {
+        text-align: right;
+      }
+      .disabled .panel-header {
+        opacity: 0.5;
+      }
+      .panel-content {
+        background-color: var(--etools-content-panel-content-bg-color, #ffffff);
+        box-sizing: border-box;
+        padding: 20px;
+      }
+      .disabled .panel-content {
+        color: var(--etools-content-panel-disabled-color, #9b9b9b);
+      }
+
+    </style>
+    <div class$="content-panel-wrapper [[_getDisabledClass(isDisabled)]]">
+      <template is="dom-if" if="{{!noHeader}}">
+        <div class$="panel-header [[titleStyle]]">[[title]]</div>
+      </template>
+      <div class="panel-content">
+        <content></content>
+      </div>
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'etools-content-panel',
+      properties: {
+        title: {
+          type: String,
+          value: 'Panel title'
+        },
+        titleStyle: {
+          type: String,
+          value: ''
+        },
+        noHeader: {
+          type: Boolean,
+          value: false
+        },
+        isDisabled: {
+          type: Boolean,
+          value: false
+        }
+      },
+      _getDisabledClass: function (disabled) {
+        if (disabled === true) {
+          return 'disabled';
+        }
+        return '';
+      }
+    });
+  </script>
+</dom-module>
