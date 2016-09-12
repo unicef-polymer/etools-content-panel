@@ -41,7 +41,8 @@ $ bower install --save etools-content-panel
 
 ## Preview element locally
 
-First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) installed. Then run `$ polymer serve` to serve your element application locally.
+Install needed dependencies by running: `$ bower install`.
+Make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) installed. Then run `$ polymer serve` to serve your element application locally.
 
 ## 
 
