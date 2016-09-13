@@ -4,7 +4,7 @@
 `etools-content-panel`
 
 A simple panel with heading to display content in an organized manner.
-You can chose to display or to not display the header and align the title: left, center and right, make it uppercase.
+You can chose to display or to not display the header and align the title: left, center and right, make it uppercase or capitalize.
 It also has a disabled state. Check the demo page for examples.
 
 ### Styling
@@ -32,6 +32,7 @@ Custom property | Description | Default
         box-shadow: 0 4px 10px -7px var(--etools-content-panel-shadow-color, #333333);
         margin-top: 20px;
       }
+
       .panel-header {
         background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAIAAABvrngfAAAALklEQVQImWM8+nA2AwODkJAQAwwwofHfvXvHhMaHqkLmCwkJMaHxoaqQ+QwMDADJhRGDAz83qAAAAABJRU5ErkJggg==);
         margin: 0;
@@ -41,23 +42,33 @@ Custom property | Description | Default
         text-align: left;
         @apply(--etools-panel-header-background);
       }
+
       .uppercase {
         text-transform: uppercase;
       }
+
+      .capitalize {
+        text-transform: capitalize;
+      }
+
       .align-center {
         text-align: center;
       }
+
       .align-right {
         text-align: right;
       }
+
       .disabled .panel-header {
         opacity: 0.5;
       }
+
       .panel-content {
         background-color: var(--etools-content-panel-content-bg-color, #ffffff);
         box-sizing: border-box;
         padding: 20px;
       }
+
       .disabled .panel-content {
         color: var(--etools-content-panel-disabled-color, #9b9b9b);
       }
@@ -74,32 +85,37 @@ Custom property | Description | Default
   </template>
 
   <script>
-    Polymer({
-      is: 'etools-content-panel',
-      properties: {
-        title: {
-          type: String,
-          value: 'Panel title'
+    (function () {
+      'use strict';
+
+      Polymer({
+        is: 'etools-content-panel',
+
+        properties: {
+          title: {
+            type: String,
+            value: 'Panel title'
+          },
+          titleStyle: {
+            type: String,
+            value: ''
+          },
+          noHeader: {
+            type: Boolean,
+            value: false
+          },
+          isDisabled: {
+            type: Boolean,
+            value: false
+          }
         },
-        titleStyle: {
-          type: String,
-          value: ''
-        },
-        noHeader: {
-          type: Boolean,
-          value: false
-        },
-        isDisabled: {
-          type: Boolean,
-          value: false
+        _getDisabledClass: function (disabled) {
+          if (disabled === true) {
+            return 'disabled';
+          }
+          return '';
         }
-      },
-      _getDisabledClass: function (disabled) {
-        if (disabled === true) {
-          return 'disabled';
-        }
-        return '';
-      }
-    });
+      });
+    })();
   </script>
 </dom-module>

@@ -1,7 +1,7 @@
 # \<etools-content-panel\>
 
 A simple panel with heading to display content in an organized manner. 
-You can chose to display or to not display the header and align the title: left, center and right, make it uppercase.
+You can chose to display or to not display the header and align the title: left, center and right, make it uppercase or capitalize.
 It also has a disabled state.
 
 ## Usage
@@ -13,14 +13,14 @@ It also has a disabled state.
 
 Attributes:
 * title: String, panel title text
-* titleStyle: String, a combination between alignment classes: align-center and align-right and the uppercase class
+* titleStyle: String, a combination between alignment classes: align-center and align-right and the uppercase and capitalize class
 * noHeader: Boolean, if true the panel header is not displayed
 * isDisabled: Boolean, disabled state active/inactive
 
 All attributes of the element are not required.
 
 
-### Styling
+## Styling
 
 You can use defined variables and mixins to change panel style.
 
@@ -43,8 +43,6 @@ $ bower install --save etools-content-panel
 
 Install needed dependencies by running: `$ bower install`.
 Make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) installed. Then run `$ polymer serve` to serve your element application locally.
-
-## 
 
 ## Running Tests
 
