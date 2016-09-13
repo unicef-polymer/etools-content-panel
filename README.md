@@ -31,7 +31,7 @@ Custom property | Description | Default
 `--etools-content-panel-title-color` | Title color | `#687254`
 `--etools-panel-header-background` | Mixin applied to the header | `{}`
 `--etools-content-panel-content-bg-color` | Content background color | `#ffffff`
-`--etools-content-panel-disabled-color` | Content disabled text color | `#9b9b9b`
+`--etools-content-panel-disabled-color` | Content disabled text color | `#d1d1d1`
 
 
 ## Install
