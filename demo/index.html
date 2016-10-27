@@ -15,6 +15,9 @@
       .vertical-section-container {
         max-width: 900px;
       }
+      etools-content-panel {
+        margin-bottom: 30px;
+      }
     </style>
   </head>
   <body>
@@ -22,47 +25,26 @@
     <div class="vertical-section-container centered">
       <h1>etools-content-panel demo</h1>
 
-      <p>Panel title can be aligned: left (default), center and right.</p>
       <demo-snippet>
         <template>
-          <etools-content-panel title="Panel title">
-            Your content goes here...
+          <etools-content-panel title="Panel title" show-expand-btn>
+            <div>Your content goes here...</div>
           </etools-content-panel>
-          <etools-content-panel title="Panel title" title-style="align-center">
-            Your content goes here...
-          </etools-content-panel>
-          <etools-content-panel title="Panel title" title-style="align-right">
-            Your content goes here...
-          </etools-content-panel>
-        </template>
-      </demo-snippet>
 
-      <p>You can also make it uppercase or capitalize.</p>
-      <demo-snippet>
-        <template>
-          <etools-content-panel title="Panel title" title-style="uppercase">
-            Your content goes here...
+          <etools-content-panel title="Panel title" no-header elevation="2">
+            <div>Only content, no header...</div>
           </etools-content-panel>
-          <etools-content-panel title="Panel title" title-style="capitalize">
-            Your content goes here...
-          </etools-content-panel>
-        </template>
-      </demo-snippet>
 
-      <p>In case you do not need the header use noHeader attribute to remove it.</p>
-      <demo-snippet>
-        <template>
-          <etools-content-panel title="Panel title" no-header="true">
-            Your content goes here...
+          <etools-content-panel title="Panel title" elevation="3" is-disabled="true" show-expand-btn>
+            <div>Disabled state...</div>
           </etools-content-panel>
-        </template>
-      </demo-snippet>
 
-      <p>Disable state. This will not affect the content elements you add to panel. It only changes the text color to #9b9b9b.</p>
-      <demo-snippet>
-        <template>
-          <etools-content-panel title="Panel title" title-style="align-center" is-disabled="true">
-            Your content goes here...
+          <etools-content-panel title="Panel title" elevation="4">
+            <div>No content expand or collapse button</div>
+          </etools-content-panel>
+
+          <etools-content-panel title="Panel title" title-style="align-center" elevation="5">
+            <div>Panel elevation increased to maximum value</div>
           </etools-content-panel>
         </template>
       </demo-snippet>

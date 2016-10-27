@@ -1,21 +1,39 @@
 # \<etools-content-panel\>
 
-A simple panel with heading to display content in an organized manner. 
-You can chose to display or to not display the header and align the title: left, center and right, make it uppercase or capitalize.
-It also has a disabled state.
+A simple panel with header to display a collapsible content.
+
+![alt tag](etools-content-panel-demo.png)
 
 ## Usage
 ```html
-<etools-content-panel title="Panel title" title-style="align-center uppercase" no-header="false" is-disabled="false">
-  Your content goes here...
+<etools-content-panel title="Panel title" show-expand-btn>
+  <div>Your content goes here...</div>
+</etools-content-panel>
+
+<etools-content-panel title="Panel title" no-header elevation="2">
+  <div>Only content, no header...</div>
+</etools-content-panel>
+
+<etools-content-panel title="Panel title" elevation="3" is-disabled="true" show-expand-btn>
+  <div>Disabled state...</div>
+</etools-content-panel>
+
+<etools-content-panel title="Panel title" elevation="4">
+  <div>No content expand or collapse button</div>
+</etools-content-panel>
+
+<etools-content-panel title="Panel title" title-style="align-center" elevation="5">
+  <div>Panel elevation increased to maximum value</div>
 </etools-content-panel>
 ```
 
 Attributes:
-* title: String, panel title text
-* titleStyle: String, a combination between alignment classes: align-center and align-right and the uppercase and capitalize class
-* noHeader: Boolean, if true the panel header is not displayed
-* isDisabled: Boolean, disabled state active/inactive
+* elevation - Number Default: 1
+* isDisabled - Boolean, Default: false
+* noHeader - Boolean, Default: false
+* open - Boolean, Default: true - notifies
+* showExpandBtn - Boolean, Default: false
+* title - String, Default: Panel title
 
 All attributes of the element are not required.
 
@@ -26,12 +44,13 @@ You can use defined variables and mixins to change panel style.
 
 Custom property | Description | Default
 ----------------|-------------|----------
-`--panel-border-color` | Panel border color | `#dedede`
-`--etools-content-panel-shadow-color` | CSS box-shadow color | `#333333`
-`--etools-content-panel-title-color` | Title color | `#687254`
-`--etools-panel-header-background` | Mixin applied to the header | `{}`
-`--etools-content-panel-content-bg-color` | Content background color | `#ffffff`
-`--etools-content-panel-disabled-color` | Content disabled text color | `#d1d1d1`
+`--ecp-header-height` | Header height | `48px`
+`--ecp-header-bg` | Header background color | `#1e86bf`
+`--ecp-header-title` | Mixin applied to the header title | `{}`
+`--ecp-expand-btn` | Mixin applied to expand content utton | `{}`
+`--ecp-header-disabled` | Mixin applied to header when it's disabled | `{}`
+`--ecp-content` | Mixin applied to content | `{}`
+`--ecp-disabled-color` | Content disabled color | `#d1d1d1`
 
 
 ## Install
@@ -46,6 +65,11 @@ Make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) 
 
 ## Running Tests
 
+You need to have `web-component-tester` installed (if not run `npm install -g web-component-tester`)
+```bash
+$ wtc
 ```
-$ polymer test
+or 
+```bash
+$ wtc -p
 ```

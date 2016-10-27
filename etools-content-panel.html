@@ -1,11 +1,15 @@
 <link rel="import" href="../polymer/polymer.html">
 
+<link rel="import" href="../paper-material/paper-material.html">
+<link rel="import" href="../paper-toolbar/paper-toolbar.html">
+<link rel="import" href="../paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../iron-collapse/iron-collapse.html">
+
+
 <!--
 `etools-content-panel`
 
-A simple panel with heading to display content in an organized manner.
-You can chose to display or to not display the header and align the title: left, center and right, make it uppercase or capitalize.
-It also has a disabled state. Check the demo page for examples.
+A simple panel with header to display a collapsible content.
 
 ### Styling
 
@@ -13,12 +17,13 @@ You can use defined variables and mixins to change panel style.
 
 Custom property | Description | Default
 ----------------|-------------|----------
-`--panel-border-color` | Panel border color | `#dedede`
-`--etools-content-panel-shadow-color` | CSS box-shadow color | `#333333`
-`--etools-content-panel-title-color` | Title color | `#687254`
-`--etools-panel-header-background` | Mixin applied to the header | `{}`
-`--etools-content-panel-content-bg-color` | Content background color | `#ffffff`
-`--etools-content-panel-disabled-color` | Content disabled text color | `#d1d1d1`
+`--ecp-header-height` | Header height | `48px`
+`--ecp-header-bg` | Header background color | `#1e86bf`
+`--ecp-header-title` | Mixin applied to the header title | `{}`
+`--ecp-expand-btn` | Mixin applied to expand content utton | `{}`
+`--ecp-header-disabled` | Mixin applied to header when it's disabled | `{}`
+`--ecp-content` | Mixin applied to content | `{}`
+`--ecp-disabled-color` | Content disabled color | `#d1d1d1`
 
 @demo demo/index.html 
 -->
@@ -26,62 +31,57 @@ Custom property | Description | Default
 <dom-module id="etools-content-panel">
   <template>
     <style>
-      .content-panel-wrapper {
-        border: 1px solid var(--panel-border-color, #dedede);
-        border-radius: 4px;
-        box-shadow: 0 4px 10px -7px var(--etools-content-panel-shadow-color, #333333);
-        margin-top: 20px;
+      :host {
+        display: block;
+
+        --paper-toolbar-height: var(--ecp-header-height, 48px);
+        --paper-toolbar-background: var(--ecp-header-bg, #1e86bf);
+        --paper-toolbar-title: {
+            text-align: center;
+            margin-left: 0;
+            @apply(--ecp-header-title);
+        };
       }
 
-      .panel-header {
-        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAIAAABvrngfAAAALklEQVQImWM8+nA2AwODkJAQAwwwofHfvXvHhMaHqkLmCwkJMaHxoaqQ+QwMDADJhRGDAz83qAAAAABJRU5ErkJggg==);
-        margin: 0;
-        padding: 10px 20px;
-        color: var(--etools-content-panel-title-color, #687254);
-        font-size: 16px;
-        text-align: left;
-        @apply(--etools-panel-header-background);
+      *[hidden] {
+        display: none !important;
       }
 
-      .uppercase {
-        text-transform: uppercase;
+      paper-toolbar paper-icon-button {
+        @apply(--ecp-expand-btn);
       }
 
-      .capitalize {
-        text-transform: capitalize;
-      }
-
-      .align-center {
-        text-align: center;
-      }
-
-      .align-right {
-        text-align: right;
-      }
-
-      .disabled .panel-header {
+      .disabled paper-toolbar {
         opacity: 0.5;
+        @apply(--ecp-header-disabled);
       }
 
-      .panel-content {
-        background-color: var(--etools-content-panel-content-bg-color, #ffffff);
+      iron-collapse {
+        background-color: var(--ecp-content-bg-color, #ffffff);
         box-sizing: border-box;
         padding: 20px;
+        @apply(--ecp-content);
       }
 
-      .disabled .panel-content {
-        color: var(--etools-content-panel-disabled-color, #d1d1d1);
+      .disabled iron-collapse ::slotted(*) {
+        color: var(--ecp-disabled-color, #d1d1d1);
       }
 
     </style>
-    <div class$="content-panel-wrapper [[_getDisabledClass(isDisabled)]]">
-      <template is="dom-if" if="{{!noHeader}}">
-        <div class$="panel-header [[titleStyle]]">[[title]]</div>
-      </template>
-      <div class="panel-content">
-        <content></content>
-      </div>
-    </div>
+
+    <paper-material elevation="[[elevation]]" class$="[[_getDisabledClass(isDisabled)]]">
+      <paper-toolbar hidden$="[[noHeader]]">
+        <paper-icon-button on-click="_toggle"
+                           icon$="[[_getExpandBtnIcon(open)]]"
+                           hidden$="[[!showExpandBtn]]"
+                           disabled$="[[isDisabled]]"></paper-icon-button>
+        <div class="title">[[title]]</div>
+      </paper-toolbar>
+      <iron-collapse opened="{{open}}">
+        <slot></slot>
+      </iron-collapse>
+    </paper-material>
+
   </template>
 
   <script>
@@ -96,9 +96,14 @@ Custom property | Description | Default
             type: String,
             value: 'Panel title'
           },
-          titleStyle: {
-            type: String,
-            value: ''
+          elevation: {
+            type: Number,
+            value: 1
+          },
+          open: {
+            type: Boolean,
+            value: true,
+            notify: true
           },
           noHeader: {
             type: Boolean,
@@ -107,14 +112,28 @@ Custom property | Description | Default
           isDisabled: {
             type: Boolean,
             value: false
+          },
+          showExpandBtn: {
+            type: Boolean,
+            value: false
           }
         },
-        _getDisabledClass: function (disabled) {
+        _getDisabledClass: function(disabled) {
           if (disabled === true) {
             return 'disabled';
           }
           return '';
+        },
+        _toggle: function() {
+          this.set('open', !this.open);
+        },
+        _getExpandBtnIcon: function(open) {
+          if (!open) {
+            return 'icons:expand-more';
+          }
+          return 'icons:expand-less';
         }
+
       });
     })();
   </script>
