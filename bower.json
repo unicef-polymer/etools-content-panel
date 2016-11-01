@@ -1,8 +1,7 @@
 {
   "name": "etools-content-panel",
   "description": "A simple panel with heading to display content in an organized manner. ",
-  "private": false,
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "https://github.com/unicef-polymer/etools-content-panel/blob/master/LICENSE.md",
   "main": "etools-content-panel.html",
   "dependencies": {
