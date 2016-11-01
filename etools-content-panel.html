@@ -24,6 +24,8 @@ Custom property | Description | Default
 `--ecp-header-disabled` | Mixin applied to header when it's disabled | `{}`
 `--ecp-content` | Mixin applied to content | `{}`
 `--ecp-disabled-color` | Content disabled color | `#d1d1d1`
+`--epc-toolbar-content` | Mixin applied to toolbar content | `{}`
+`--epc-toolbar` | Mixin applied to paper-toolbar element | `{}`
 
 @demo demo/index.html 
 -->
@@ -49,6 +51,15 @@ Custom property | Description | Default
 
       paper-toolbar paper-icon-button {
         @apply(--ecp-expand-btn);
+      }
+
+      paper-toolbar {
+        --paper-toolbar: {
+          @apply(--epc-toolbar);
+        };
+        --paper-toolbar-content: {
+          @apply(--epc-toolbar-content);
+        }
       }
 
       .disabled paper-toolbar {

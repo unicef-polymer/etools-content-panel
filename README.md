@@ -51,6 +51,8 @@ Custom property | Description | Default
 `--ecp-header-disabled` | Mixin applied to header when it's disabled | `{}`
 `--ecp-content` | Mixin applied to content | `{}`
 `--ecp-disabled-color` | Content disabled color | `#d1d1d1`
+`--epc-toolbar-content` | Mixin applied to toolbar content | `{}`
+`--epc-toolbar` | Mixin applied to paper-toolbar element | `{}`
 
 
 ## Install
