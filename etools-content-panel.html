@@ -27,7 +27,7 @@ Custom property | Description | Default
 `--epc-toolbar-content` | Mixin applied to toolbar content | `{}`
 `--epc-toolbar` | Mixin applied to paper-toolbar element | `{}`
 
-@demo demo/index.html 
+@demo demo/index.html
 -->
 
 <dom-module id="etools-content-panel">
@@ -67,7 +67,7 @@ Custom property | Description | Default
         @apply(--ecp-header-disabled);
       }
 
-      iron-collapse {
+      #content-wrapper {
         background-color: var(--ecp-content-bg-color, #ffffff);
         box-sizing: border-box;
         padding: 20px;
@@ -89,7 +89,9 @@ Custom property | Description | Default
         <div class="title">[[title]]</div>
       </paper-toolbar>
       <iron-collapse opened="{{open}}">
-        <slot></slot>
+        <div id="content-wrapper">
+          <slot></slot>
+        </div>
       </iron-collapse>
     </paper-material>
 
