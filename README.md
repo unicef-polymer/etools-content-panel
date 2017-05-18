@@ -33,7 +33,7 @@ Attributes:
 * noHeader - Boolean, Default: false
 * open - Boolean, Default: true - notifies
 * showExpandBtn - Boolean, Default: false
-* title - String, Default: Panel title
+* panelTitle - String, Default: Panel title
 
 All attributes of the element are not required.
 
