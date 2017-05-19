@@ -86,7 +86,7 @@ Custom property | Description | Default
                            icon$="[[_getExpandBtnIcon(open)]]"
                            hidden$="[[!showExpandBtn]]"
                            disabled$="[[isDisabled]]"></paper-icon-button>
-        <div class="title">[[title]]</div>
+        <div class="title">[[panelTitle]]</div>
       </paper-toolbar>
       <iron-collapse opened="{{open}}">
         <div id="content-wrapper">
@@ -105,7 +105,7 @@ Custom property | Description | Default
         is: 'etools-content-panel',
 
         properties: {
-          title: {
+          panelTitle: {
             type: String,
             value: 'Panel title'
           },

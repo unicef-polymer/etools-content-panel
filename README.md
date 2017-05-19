@@ -6,23 +6,23 @@ A simple panel with header to display a collapsible content.
 
 ## Usage
 ```html
-<etools-content-panel title="Panel title" show-expand-btn>
+<etools-content-panel panel-title="Panel title" show-expand-btn>
   <div>Your content goes here...</div>
 </etools-content-panel>
 
-<etools-content-panel title="Panel title" no-header elevation="2">
+<etools-content-panel panel-title="Panel title" no-header elevation="2">
   <div>Only content, no header...</div>
 </etools-content-panel>
 
-<etools-content-panel title="Panel title" elevation="3" is-disabled="true" show-expand-btn>
+<etools-content-panel panel-title="Panel title" elevation="3" is-disabled="true" show-expand-btn>
   <div>Disabled state...</div>
 </etools-content-panel>
 
-<etools-content-panel title="Panel title" elevation="4">
+<etools-content-panel panel-title="Panel title" elevation="4">
   <div>No content expand or collapse button</div>
 </etools-content-panel>
 
-<etools-content-panel title="Panel title" title-style="align-center" elevation="5">
+<etools-content-panel panel-title="Panel title" title-style="align-center" elevation="5">
   <div>Panel elevation increased to maximum value</div>
 </etools-content-panel>
 ```
@@ -33,7 +33,7 @@ Attributes:
 * noHeader - Boolean, Default: false
 * open - Boolean, Default: true - notifies
 * showExpandBtn - Boolean, Default: false
-* title - String, Default: Panel title
+* panelTitle - String, Default: Panel title
 
 All attributes of the element are not required.
 
