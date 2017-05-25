@@ -1,5 +1,5 @@
 {
-  "name": "etools-behaviors",
+  "name": "etools-content-panel",
   "devDependencies": {
     "eslint": "^3.19.0",
     "eslint-config-google": "^0.7.0",
