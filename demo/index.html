@@ -6,8 +6,17 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
     <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
 
+    <script>
+      window.Polymer = {
+        dom: 'shadow',
+        lazyRegister: true
+      };
+    </script>
+
     <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
     <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../../paper-icon-button/paper-icon-button.html">
+    <link rel="import" href="../../iron-icons/iron-icons.html">
 
     <link rel="import" href="../etools-content-panel.html">
 
@@ -28,6 +37,11 @@
       <demo-snippet>
         <template>
           <etools-content-panel panel-title="Panel title" show-expand-btn>
+            <div slot="panel-btns">
+              <paper-icon-button icon="add-circle"></paper-icon-button>
+              <paper-icon-button icon="create"></paper-icon-button>
+              <paper-icon-button icon="polymer"></paper-icon-button>
+            </div>
             <div>Your content goes here...</div>
           </etools-content-panel>
 

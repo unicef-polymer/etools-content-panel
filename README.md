@@ -1,12 +1,19 @@
 # \<etools-content-panel\>
 
 A simple panel with header to display a collapsible content.
+The deader can also have buttons on the right side on the title (slotted content `slot="panel-btns""`, 
+check first usage example).
 
 ![alt tag](etools-content-panel-demo.png)
 
 ## Usage
 ```html
 <etools-content-panel panel-title="Panel title" show-expand-btn>
+  <div slot="panel-btns">
+    <paper-icon-button icon="add-circle"></paper-icon-button>
+    <paper-icon-button icon="create"></paper-icon-button>
+    <paper-icon-button icon="polymer"></paper-icon-button>
+  </div>
   <div>Your content goes here...</div>
 </etools-content-panel>
 
@@ -53,6 +60,7 @@ Custom property | Description | Default
 `--ecp-disabled-color` | Content disabled color | `#d1d1d1`
 `--epc-toolbar-content` | Mixin applied to toolbar content | `{}`
 `--epc-toolbar` | Mixin applied to paper-toolbar element | `{}`
+`--ecp-header-btns-wrapper` | Mixin appplied to panel header right btns container | `{}`
 
 
 ## Install
