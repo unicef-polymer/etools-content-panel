@@ -26,6 +26,7 @@ Custom property | Description | Default
 `--ecp-disabled-color` | Content disabled color | `#d1d1d1`
 `--epc-toolbar-content` | Mixin applied to toolbar content | `{}`
 `--epc-toolbar` | Mixin applied to paper-toolbar element | `{}`
+`--ecp-header-btns-wrapper` | Mixin appplied to panel header right btns container | `{}`
 
 @demo demo/index.html
 -->
@@ -62,6 +63,11 @@ Custom property | Description | Default
         }
       }
 
+      #panel-btns-wrapper {
+        opacity: 0.8;
+        @apply(--ecp-header-btns-wrapper);
+      }
+
       .disabled paper-toolbar {
         opacity: 0.5;
         @apply(--ecp-header-disabled);
@@ -87,6 +93,9 @@ Custom property | Description | Default
                            hidden$="[[!showExpandBtn]]"
                            disabled$="[[isDisabled]]"></paper-icon-button>
         <div class="title">[[panelTitle]]</div>
+        <div id="panel-btns-wrapper">
+          <slot name="panel-btns"></slot>
+        </div>
       </paper-toolbar>
       <iron-collapse opened="{{open}}">
         <div id="content-wrapper">
