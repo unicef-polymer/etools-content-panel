@@ -1,7 +1,7 @@
 # \<etools-content-panel\>
 
 A simple panel with header to display a collapsible content.
-The deader can also have buttons on the right side on the title (slotted content `slot="panel-btns""`, 
+The header can also have buttons on the right side on the title (slotted content `slot="panel-btns""`, 
 check first usage example).
 
 ![alt tag](etools-content-panel-demo.png)
