@@ -1,6 +1,8 @@
 {
   "name": "etools-content-panel",
   "description": "A simple panel with header to display a collapsible content.",
+  "version": "2.0.0",
+  "license": "https://github.com/unicef-polymer/etools-content-panel/blob/master/LICENSE.md",
   "main": "etools-content-panel.html",
   "dependencies": {
     "polymer": "Polymer/polymer#^2.0.0",
