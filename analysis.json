@@ -2887,7 +2887,7 @@
           "inheritedFrom": "Polymer.ElementMixin"
         },
         {
-          "name": "_getDisabledClass",
+          "name": "_toggle",
           "description": "",
           "privacy": "protected",
           "sourceRange": {
@@ -2901,14 +2901,10 @@
             }
           },
           "metadata": {},
-          "params": [
-            {
-              "name": "disabled"
-            }
-          ]
+          "params": []
         },
         {
-          "name": "_toggle",
+          "name": "_getExpandBtnIcon",
           "description": "",
           "privacy": "protected",
           "sourceRange": {
@@ -2918,23 +2914,6 @@
             },
             "end": {
               "line": 182,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "params": []
-        },
-        {
-          "name": "_getExpandBtnIcon",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 184,
-              "column": 6
-            },
-            "end": {
-              "line": 186,
               "column": 7
             }
           },
@@ -3755,7 +3734,7 @@
           "column": 4
         },
         "end": {
-          "line": 187,
+          "line": 183,
           "column": 5
         }
       },
