@@ -69,20 +69,20 @@
       }
 
       .panel-btns-wrapper ::slotted(*) {
-        @apply(--ecp-header-btns-wrapper);
+        @apply --ecp-header-btns-wrapper;
       }
 
       .content-wrapper {
         background-color: var(--ecp-content-bg-color, #ffffff);
         box-sizing: border-box;
         padding: 8px 24px 16px 24px;
-        @apply(--ecp-content);
+        @apply --ecp-content;
       }
 
       :host([disabled]) .panel-header,
       :host([disabled]) ::slotted(*) {
         opacity: 0.5;
-        @apply(--ecp-disabled);
+        @apply --ecp-disabled;
       }
 
     </style>
