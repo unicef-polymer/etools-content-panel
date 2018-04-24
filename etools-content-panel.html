@@ -1,10 +1,9 @@
 <link rel="import" href="../polymer/polymer-element.html">
-<link rel="import" href="../polymer/lib/mixins/gesture-event-listeners.html">
-<link rel="import" href="../paper-styles/element-styles/paper-material-styles.html">
-<link rel="import" href="../paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../iron-icons/iron-icons.html">
 <link rel="import" href="../iron-collapse/iron-collapse.html">
 <link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../paper-styles/element-styles/paper-material-styles.html">
+<link rel="import" href="../paper-icon-button/paper-icon-button.html">
 
 <dom-module id="etools-content-panel">
   <template>
@@ -91,7 +90,7 @@
       <div class="panel-header" hidden$="[[noHeader]]">
 
         <paper-icon-button class="toggle-btn"
-                           on-tap="_toggle"
+                           on-click="_toggle"
                            icon="[[_getExpandBtnIcon(open)]]"
                            hidden$="[[!showExpandBtn]]"
                            disabled$="[[disabled]]"></paper-icon-button>
@@ -114,6 +113,7 @@
 
   <script>
     'use strict';
+
     /**
      * `etools-content-panel`
      * A simple panel with header to display a collapsible content.
@@ -136,11 +136,13 @@
      *
      * @customElement
      * @polymer
-     * @appliesMixin Polymer.GestureEventListeners
      * @demo demo/index.html
      */
     class EtoolsContentPanel extends Polymer.Element {
-      static get is() { return 'etools-content-panel'; }
+      static get is() {
+        return 'etools-content-panel';
+      }
+
       static get properties() {
         return {
           panelTitle: {
