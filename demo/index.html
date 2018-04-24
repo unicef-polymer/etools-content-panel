@@ -1,42 +1,36 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
-    <title>etools-content-panel demo</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
-    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-    <script>
-      window.Polymer = {
-        dom: 'shadow',
-        lazyRegister: true
-      };
-    </script>
+    <title>etools-content-panel demo</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
 
     <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
     <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
     <link rel="import" href="../../paper-icon-button/paper-icon-button.html">
-    <link rel="import" href="../../iron-icons/iron-icons.html">
-
     <link rel="import" href="../etools-content-panel.html">
 
-    <style is="custom-style" include="demo-pages-shared-styles">
-      .vertical-section-container {
-        max-width: 900px;
-      }
-      etools-content-panel {
-        margin-bottom: 30px;
-      }
-    </style>
+    <custom-style>
+      <style is="custom-style" include="demo-pages-shared-styles">
+        .vertical-section-container {
+          max-width: 900px;
+        }
+        etools-content-panel {
+          margin-bottom: 30px;
+        }
+      </style>
+    </custom-style>
   </head>
   <body>
-
     <div class="vertical-section-container centered">
-      <h1>etools-content-panel demo</h1>
-
+      <h3>Basic etools-content-panel demo</h3>
       <demo-snippet>
         <template>
-          <etools-content-panel panel-title="Panel title" show-expand-btn>
+          <etools-content-panel panel-title="Panel title. Super long panel title to summarise shown content.
+            Title should be shown on single line, overflow ellipsis" show-expand-btn>
             <div slot="panel-btns">
               <paper-icon-button icon="add-circle"></paper-icon-button>
               <paper-icon-button icon="create"></paper-icon-button>
@@ -49,11 +43,12 @@
             <div>Only content, no header...</div>
           </etools-content-panel>
 
-          <etools-content-panel panel-title="Panel title" elevation="3" is-disabled="true" show-expand-btn>
+          <etools-content-panel panel-title="Panel title" elevation="3" disabled show-expand-btn>
             <div>Disabled state...</div>
           </etools-content-panel>
 
-          <etools-content-panel panel-title="Panel title" elevation="4">
+          <etools-content-panel panel-title="Panel title. Super long panel title to summarise shown content.
+            Title should be shown on single line, overflow ellipsis" elevation="4">
             <div>No content expand or collapse button</div>
           </etools-content-panel>
 
@@ -62,8 +57,6 @@
           </etools-content-panel>
         </template>
       </demo-snippet>
-
     </div>
-
   </body>
 </html>

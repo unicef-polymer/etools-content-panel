@@ -1,119 +1,150 @@
-<link rel="import" href="../polymer/polymer.html">
-
-<link rel="import" href="../paper-material/paper-material.html">
-<link rel="import" href="../paper-toolbar/paper-toolbar.html">
-<link rel="import" href="../paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
 <link rel="import" href="../iron-collapse/iron-collapse.html">
-
-
-<!--
-`etools-content-panel`
-
-A simple panel with header to display a collapsible content.
-
-### Styling
-
-You can use defined variables and mixins to change panel style.
-
-Custom property | Description | Default
-----------------|-------------|----------
-`--ecp-header-height` | Header height | `48px`
-`--ecp-header-bg` | Header background color | `#1e86bf`
-`--ecp-header-title` | Mixin applied to the header title | `{}`
-`--ecp-expand-btn` | Mixin applied to expand content utton | `{}`
-`--ecp-header-disabled` | Mixin applied to header when it's disabled | `{}`
-`--ecp-content` | Mixin applied to content | `{}`
-`--ecp-disabled-color` | Content disabled color | `#d1d1d1`
-`--epc-toolbar-content` | Mixin applied to toolbar content | `{}`
-`--epc-toolbar` | Mixin applied to paper-toolbar element | `{}`
-`--ecp-header-btns-wrapper` | Mixin appplied to panel header right btns container | `{}`
-
-@demo demo/index.html
--->
+<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../paper-styles/element-styles/paper-material-styles.html">
+<link rel="import" href="../paper-icon-button/paper-icon-button.html">
 
 <dom-module id="etools-content-panel">
   <template>
-    <style>
+    <style include="paper-material-styles">
       :host {
         display: block;
-
-        --paper-toolbar-height: var(--ecp-header-height, 48px);
-        --paper-toolbar-background: var(--ecp-header-bg, #1e86bf);
-        --paper-toolbar-title: {
-            text-align: center;
-            margin-left: 0;
-            @apply(--ecp-header-title);
-        };
       }
 
       *[hidden] {
         display: none !important;
       }
 
-      paper-toolbar paper-icon-button {
-        @apply(--ecp-expand-btn);
+      .panel-header {
+        @apply --layout-horizontal;
+        @apply --layout-center;
+        @apply --layout-justified;
+        @apply --layout-wrap;
+        box-sizing: border-box;
+        background-color: var(--ecp-header-bg, #0099ff);
+        height: var(--ecp-header-height, 48px);
+        padding: 4px 16px;
+        @apply --epc-header;
       }
 
-      paper-toolbar {
-        --paper-toolbar: {
-          @apply(--epc-toolbar);
-        };
-        --paper-toolbar-content: {
-          @apply(--epc-toolbar-content);
-        }
+      :host(:not([show-expand-btn])) .panel-header {
+        padding: 4px 16px 4px 24px;
       }
 
-      #panel-btns-wrapper {
+      h2.title,
+      .toggle-btn,
+      .panel-btns-wrapper ::slotted(*) {
+        color: var(--epc-header-color, #ffffff);
+      }
+
+      .toggle-btn,
+      .panel-btns-wrapper ::slotted(*) {
         opacity: 0.8;
-        @apply(--ecp-header-btns-wrapper);
       }
 
-      .disabled paper-toolbar {
-        opacity: 0.5;
-        @apply(--ecp-header-disabled);
+      .toggle-btn {
+        @apply --ecp-toggle-btn;
       }
 
-      #content-wrapper {
+      h2.title {
+        @apply --layout;
+        @apply --layout-flex;
+        text-align: center;
+        margin: 0;
+        padding: 8px 0;
+        font-size: 21px;
+        font-weight: bold;
+        min-width: 0;
+        @apply --ecp-header-title;
+      }
+
+      h2.title span {
+        display: inline-block;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .panel-btns-wrapper ::slotted(*) {
+        @apply --ecp-header-btns-wrapper;
+      }
+
+      .content-wrapper {
         background-color: var(--ecp-content-bg-color, #ffffff);
         box-sizing: border-box;
-        padding: 20px;
-        @apply(--ecp-content);
+        padding: 8px 24px 16px 24px;
+        @apply --ecp-content;
       }
 
-      .disabled iron-collapse ::slotted(*) {
-        color: var(--ecp-disabled-color, #d1d1d1);
+      :host([disabled]) .panel-header,
+      :host([disabled]) ::slotted(*) {
+        opacity: 0.5;
+        @apply --ecp-disabled;
       }
 
     </style>
 
-    <paper-material elevation="[[elevation]]" class$="[[_getDisabledClass(isDisabled)]]">
-      <paper-toolbar hidden$="[[noHeader]]">
-        <paper-icon-button on-click="_toggle"
-                           icon$="[[_getExpandBtnIcon(open)]]"
+    <div class="paper-material" elevation$="[[elevation]]">
+      <div class="panel-header" hidden$="[[noHeader]]">
+
+        <paper-icon-button class="toggle-btn"
+                           on-click="_toggle"
+                           icon="[[_getExpandBtnIcon(open)]]"
                            hidden$="[[!showExpandBtn]]"
-                           disabled$="[[isDisabled]]"></paper-icon-button>
-        <div class="title">[[panelTitle]]</div>
-        <div id="panel-btns-wrapper">
+                           disabled$="[[disabled]]"></paper-icon-button>
+
+        <h2 class="title"><span>[[panelTitle]]</span></h2>
+
+        <div class="panel-btns-wrapper">
           <slot name="panel-btns"></slot>
         </div>
-      </paper-toolbar>
+
+      </div>
       <iron-collapse opened="{{open}}">
-        <div id="content-wrapper">
+        <div class="content-wrapper">
           <slot></slot>
         </div>
       </iron-collapse>
-    </paper-material>
+    </div>
 
   </template>
 
   <script>
-    (function() {
-      'use strict';
+    'use strict';
 
-      Polymer({
-        is: 'etools-content-panel',
+    /**
+     * `etools-content-panel`
+     * A simple panel with header to display a collapsible content.
+     *
+     * ### Styling
+     *
+     * You can use defined variables and mixins to change panel style.
+     *
+     * Custom property | Description | Default
+     * ----------------|-------------|----------
+     * `--ecp-header-height` | Header height | `48px`
+     * `--ecp-header-bg` | Header background color | `#1e86bf`
+     * `--ecp-header-color` | Header color | `#ffffff`
+     * `--ecp-header` | Mixin applied to header | `{}`
+     * `--ecp-toggle-btn` | Mixin applied to expand content button | `{}`
+     * `--ecp-header-title` | Mixin applied to the header title | `{}`
+     * `--ecp-header-btns-wrapper` | Mixin appplied to panel header right btns container | `{}`
+     * `--ecp-content` | Mixin applied to content | `{}`
+     * `--ecp-disabled` | Mixin applied in disabled state | `{}`
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class EtoolsContentPanel extends Polymer.Element {
+      static get is() {
+        return 'etools-content-panel';
+      }
 
-        properties: {
+      static get properties() {
+        return {
           panelTitle: {
             type: String,
             value: 'Panel title'
@@ -129,34 +160,31 @@ Custom property | Description | Default
           },
           noHeader: {
             type: Boolean,
-            value: false
+            value: false,
+            reflectToAttribute: true
           },
-          isDisabled: {
+          disabled: {
             type: Boolean,
-            value: false
+            value: false,
+            reflectToAttribute: true
           },
           showExpandBtn: {
             type: Boolean,
-            value: false
+            value: false,
+            reflectToAttribute: true
           }
-        },
-        _getDisabledClass: function(disabled) {
-          if (disabled === true) {
-            return 'disabled';
-          }
-          return '';
-        },
-        _toggle: function() {
-          this.set('open', !this.open);
-        },
-        _getExpandBtnIcon: function(open) {
-          if (!open) {
-            return 'icons:expand-more';
-          }
-          return 'icons:expand-less';
-        }
+        };
+      }
 
-      });
-    })();
+      _toggle() {
+        this.set('open', !this.open);
+      }
+
+      _getExpandBtnIcon(open) {
+        return open ? 'icons:expand-less' : 'icons:expand-more';
+      }
+    }
+
+    window.customElements.define(EtoolsContentPanel.is, EtoolsContentPanel);
   </script>
 </dom-module>

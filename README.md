@@ -21,7 +21,7 @@ check first usage example).
   <div>Only content, no header...</div>
 </etools-content-panel>
 
-<etools-content-panel panel-title="Panel title" elevation="3" is-disabled="true" show-expand-btn>
+<etools-content-panel panel-title="Panel title" elevation="3" disabled show-expand-btn>
   <div>Disabled state...</div>
 </etools-content-panel>
 
@@ -36,14 +36,11 @@ check first usage example).
 
 Attributes:
 * elevation - Number Default: 1
-* isDisabled - Boolean, Default: false
+* disabled - Boolean, Default: false
 * noHeader - Boolean, Default: false
 * open - Boolean, Default: true - notifies
 * showExpandBtn - Boolean, Default: false
 * panelTitle - String, Default: Panel title
-
-All attributes of the element are not required.
-
 
 ## Styling
 
@@ -53,49 +50,33 @@ Custom property | Description | Default
 ----------------|-------------|----------
 `--ecp-header-height` | Header height | `48px`
 `--ecp-header-bg` | Header background color | `#1e86bf`
+`--ecp-header-color` | Header color | `#ffffff`
+`--ecp-header` | Mixin applied to header | `{}`
+`--ecp-toggle-btn` | Mixin applied to expand content button | `{}`
 `--ecp-header-title` | Mixin applied to the header title | `{}`
-`--ecp-expand-btn` | Mixin applied to expand content utton | `{}`
-`--ecp-header-disabled` | Mixin applied to header when it's disabled | `{}`
-`--ecp-content` | Mixin applied to content | `{}`
-`--ecp-disabled-color` | Content disabled color | `#d1d1d1`
-`--epc-toolbar-content` | Mixin applied to toolbar content | `{}`
-`--epc-toolbar` | Mixin applied to paper-toolbar element | `{}`
 `--ecp-header-btns-wrapper` | Mixin appplied to panel header right btns container | `{}`
-
+`--ecp-content` | Mixin applied to content | `{}`
+`--ecp-disabled` | Mixin applied in disabled state | `{}`
 
 ## Install
 ```bash
 $ bower install --save etools-content-panel
 ```
 
-## Preview element locally
+## Install the Polymer-CLI
 
-Install needed dependencies by running: `$ bower install`.
-Make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) installed. Then run `$ polymer serve` to serve your element application locally.
+First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) installed. Then run `polymer serve` to serve your element locally.
 
-## Linting the code
+## Viewing Your Element
 
-Innstall local npm packages (run `npm install`)
-Then just run the linting task
-
-```bash
-$ npm run lint
 ```
-You should also use polylint. If you don't have Polylint installed run `npm install -g polylint`.
-Then just run the linter on each file you wish to check like so
-
-```bash
-$ polylint -i filename.html
+$ polymer serve
 ```
-At the moment polylint crashes if it encounters a missing import. If that happens, temporarily comment out such imports and run the command again.
 
 ## Running Tests
 
-You need to have `web-component-tester` installed (if not run `npm install -g web-component-tester`)
-```bash
-$ wtc
 ```
-or
-```bash
-$ wtc -p
+$ polymer test
 ```
+
+Your application is already set up to be tested via [web-component-tester](https://github.com/Polymer/web-component-tester). Run `polymer test` to run your application's test suite locally.

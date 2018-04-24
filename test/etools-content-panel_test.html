@@ -1,10 +1,11 @@
 <!doctype html>
-
-<html>
+<html lang="en">
   <head>
-    <title>etools-content-panel test</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>etools-content-panel test</title>
+
     <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
     <script src="../../web-component-tester/browser.js"></script>
 
@@ -12,21 +13,40 @@
   </head>
   <body>
 
-    <test-fixture id="basic">
+    <test-fixture id="BasicTestFixture">
       <template>
         <etools-content-panel></etools-content-panel>
       </template>
     </test-fixture>
 
-    <script>
-      suite('etools-content-panel', function() {
+    <test-fixture id="ChangedPropertyTestFixture">
+      <template>
+        <etools-content-panel prop1="new-prop1"></etools-content-panel>
+      </template>
+    </test-fixture>
 
-        test('instantiating the element works', function() {
-          var element = fixture('basic');
-          assert.equal(element.is, 'etools-content-panel');
+    <script>
+      suite('etools-content-panel', () => {
+
+        test('instantiating the element with default properties works', () => {
+          const element = fixture('BasicTestFixture');
+          assert.equal(element.prop1, 'etools-content-panel');
+          const elementShadowRoot = element.shadowRoot;
+          const elementHeader = elementShadowRoot.querySelector('h2');
+          assert.equal(elementHeader.innerHTML, 'Hello etools-content-panel!');
+        });
+
+        test('setting a property on the element works', () => {
+          // Create a test fixture
+          const element = fixture('ChangedPropertyTestFixture');
+          assert.equal(element.prop1, 'new-prop1');
+          const elementShadowRoot = element.shadowRoot;
+          const elementHeader = elementShadowRoot.querySelector('h2');
+          assert.equal(elementHeader.innerHTML, 'Hello new-prop1!');
         });
 
       });
     </script>
+
   </body>
 </html>
