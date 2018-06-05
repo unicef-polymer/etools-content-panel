@@ -6,14 +6,15 @@
 
     <title>etools-content-panel demo</title>
 
-    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
 
-    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
-    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
-    <link rel="import" href="../../paper-icon-button/paper-icon-button.html">
-    <link rel="import" href="../etools-content-panel.html">
+    <script type="module" src="../node_modules/@polymer/iron-demo-helpers/demo-pages-shared-styles.js"></script>
+    <script type="module" src="../node_modules/@polymer/iron-demo-helpers/demo-snippet.js"></script>
+    <script type="module" src="../node_modules/@polymer/paper-icon-button/paper-icon-button.js"></script>
+    <script type="module" src="../etools-content-panel.js"></script>
 
-    <custom-style>
+
+
       <style is="custom-style" include="demo-pages-shared-styles">
         .vertical-section-container {
           max-width: 900px;
@@ -21,8 +22,11 @@
         etools-content-panel {
           margin-bottom: 30px;
         }
+        .centered{
+          margin: 0 auto;
+        }
       </style>
-    </custom-style>
+
   </head>
   <body>
     <div class="vertical-section-container centered">
@@ -30,7 +34,7 @@
       <demo-snippet>
         <template>
           <etools-content-panel panel-title="Panel title. Super long panel title to summarise shown content.
-            Title should be shown on single line, overflow ellipsis" show-expand-btn>
+            Title should be shown on single line, overflow ellipsis" show-expand-btn="">
             <div slot="panel-btns">
               <paper-icon-button icon="add-circle"></paper-icon-button>
               <paper-icon-button icon="create"></paper-icon-button>
@@ -39,11 +43,11 @@
             <div>Your content goes here...</div>
           </etools-content-panel>
 
-          <etools-content-panel panel-title="Panel title" no-header elevation="2">
+          <etools-content-panel panel-title="Panel title" no-header="" elevation="2">
             <div>Only content, no header...</div>
           </etools-content-panel>
 
-          <etools-content-panel panel-title="Panel title" elevation="3" disabled show-expand-btn>
+          <etools-content-panel panel-title="Panel title" elevation="3" disabled="" show-expand-btn="">
             <div>Disabled state...</div>
           </etools-content-panel>
 
@@ -58,5 +62,6 @@
         </template>
       </demo-snippet>
     </div>
+
   </body>
 </html>
