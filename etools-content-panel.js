@@ -1,4 +1,4 @@
-import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
+import {PolymerElement, html} from '@polymer/polymer/polymer-element.js';
 import '@polymer/iron-icons/iron-icons.js';
 import '@polymer/iron-collapse/iron-collapse.js';
 import '@polymer/iron-flex-layout/iron-flex-layout.js';
@@ -32,105 +32,107 @@ import '@polymer/paper-icon-button/paper-icon-button.js';
  */
 class EtoolsContentPanel extends PolymerElement {
   static get template() {
+    // language=HTML
     return html`
-    <style include="paper-material-styles">
-      :host {
-        display: block;
-      }
+      <style include="paper-material-styles">
+        :host {
+          display: block;
+        }
 
-      *[hidden] {
-        display: none !important;
-      }
+        *[hidden] {
+          display: none !important;
+        }
 
-      .panel-header {
-        @apply --layout-horizontal;
-        @apply --layout-center;
-        @apply --layout-justified;
-        @apply --layout-wrap;
-        box-sizing: border-box;
-        background-color: var(--ecp-header-bg, #0099ff);
-        height: var(--ecp-header-height, 48px);
-        padding: 4px 16px;
-        @apply --epc-header;
-      }
+        .panel-header {
+          @apply --layout-horizontal;
+          @apply --layout-center;
+          @apply --layout-justified;
+          @apply --layout-wrap;
+          box-sizing: border-box;
+          background-color: var(--ecp-header-bg, #0099ff);
+          height: var(--ecp-header-height, 48px);
+          padding: 4px 16px;
+          @apply --epc-header;
+        }
 
-      :host(:not([show-expand-btn])) .panel-header {
-        padding: 4px 16px 4px 24px;
-      }
+        :host(:not([show-expand-btn])) .panel-header {
+          padding: 4px 16px 4px 24px;
+        }
 
-      h2.title,
-      .toggle-btn,
-      .panel-btns-wrapper ::slotted(*) {
-        color: var(--epc-header-color, #ffffff);
-      }
+        h2.title,
+        .toggle-btn,
+        .panel-btns-wrapper ::slotted(*) {
+          color: var(--epc-header-color, #ffffff);
+        }
 
-      .toggle-btn,
-      .panel-btns-wrapper ::slotted(*) {
-        opacity: 0.8;
-      }
+        .toggle-btn,
+        .panel-btns-wrapper ::slotted(*) {
+          opacity: 0.8;
+        }
 
-      .toggle-btn {
-        @apply --ecp-toggle-btn;
-      }
+        .toggle-btn {
+          @apply --ecp-toggle-btn;
+        }
 
-      h2.title {
-        @apply --layout;
-        @apply --layout-flex;
-        text-align: center;
-        margin: 0;
-        padding: 8px 0;
-        font-size: 21px;
-        font-weight: bold;
-        min-width: 0;
-        @apply --ecp-header-title;
-      }
+        h2.title {
+          @apply --layout;
+          @apply --layout-flex;
+          text-align: center;
+          margin: 0;
+          padding: 8px 0;
+          font-size: 21px;
+          font-weight: bold;
+          min-width: 0;
+          @apply --ecp-header-title;
+        }
 
-      h2.title span {
-        display: inline-block;
-        width: 100%;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
+        h2.title span {
+          display: inline-block;
+          width: 100%;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
 
-      .panel-btns-wrapper ::slotted(*) {
-        @apply --ecp-header-btns-wrapper;
-      }
+        .panel-btns-wrapper ::slotted(*) {
+          @apply --ecp-header-btns-wrapper;
+        }
 
-      .content-wrapper {
-        background-color: var(--ecp-content-bg-color, #ffffff);
-        box-sizing: border-box;
-        padding: 8px 24px 16px 24px;
-        @apply --ecp-content;
-      }
+        .content-wrapper {
+          background-color: var(--ecp-content-bg-color, #ffffff);
+          box-sizing: border-box;
+          padding: 8px 24px 16px 24px;
+          @apply --ecp-content;
+        }
 
-      :host([disabled]) .panel-header,
-      :host([disabled]) ::slotted(*) {
-        opacity: 0.5;
-        @apply --ecp-disabled;
-      }
+        :host([disabled]) .panel-header,
+        :host([disabled]) ::slotted(*) {
+          opacity: 0.5;
+          @apply --ecp-disabled;
+        }
 
-    </style>
+      </style>
 
-    <div class="paper-material" elevation\$="[[elevation]]">
-      <div class="panel-header" hidden\$="[[noHeader]]">
+      <div class="paper-material" elevation\$="[[elevation]]">
+        <div class="panel-header" hidden\$="[[noHeader]]">
 
-        <paper-icon-button class="toggle-btn" on-click="_toggle" icon="[[_getExpandBtnIcon(open)]]" hidden\$="[[!showExpandBtn]]" disabled\$="[[disabled]]"></paper-icon-button>
+          <paper-icon-button class="toggle-btn" on-click="_toggle" icon="[[_getExpandBtnIcon(open)]]"
+                             hidden\$="[[!showExpandBtn]]" disabled\$="[[disabled]]"></paper-icon-button>
 
-        <h2 class="title"><span>[[panelTitle]]</span></h2>
+          <h2 class="title"><span>[[panelTitle]]</span></h2>
 
-        <div class="panel-btns-wrapper">
-          <slot name="panel-btns"></slot>
+          <div class="panel-btns-wrapper">
+            <slot name="panel-btns"></slot>
+          </div>
+
         </div>
-
+        <iron-collapse opened="{{open}}">
+          <div class="content-wrapper">
+            <slot></slot>
+          </div>
+        </iron-collapse>
       </div>
-      <iron-collapse opened="{{open}}">
-        <div class="content-wrapper">
-          <slot></slot>
-        </div>
-      </iron-collapse>
-    </div>
-`;
+    `;
   }
 
   static get is() {
