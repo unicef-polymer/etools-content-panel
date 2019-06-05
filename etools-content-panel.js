@@ -5,7 +5,6 @@ import '@polymer/iron-flex-layout/iron-flex-layout.js';
 import '@polymer/paper-styles/element-styles/paper-material-styles.js';
 import '@polymer/paper-icon-button/paper-icon-button.js';
 
-
 /**
  * `etools-content-panel`
  * A simple panel with header to display a collapsible content.

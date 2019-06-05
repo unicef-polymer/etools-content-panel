@@ -4,7 +4,7 @@ A simple panel with header to display a collapsible content.
 The header can also have buttons on the right side on the title (slotted content `slot="panel-btns""`, 
 check first usage example).
 
-![alt tag](etools-content-panel-demo.png)
+![alt tag](https://github.com/unicef-polymer/etools-content-panel/blob/master/etools-content-panel-demo.png)
 
 ## Usage
 ```html
@@ -61,7 +61,7 @@ Custom property | Description | Default
 ## Install
 TODO: create npm package
 ```bash
-$ npm i --save unicef-polymer/etools-content-panel#branch_name
+$ npm i --save @unicef-polymer/etools-content-panel
 ```
 
 ## Linting the code
