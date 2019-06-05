@@ -59,7 +59,6 @@ Custom property | Description | Default
 `--ecp-disabled` | Mixin applied in disabled state | `{}`
 
 ## Install
-TODO: create npm package
 ```bash
 $ npm i --save @unicef-polymer/etools-content-panel
 ```
