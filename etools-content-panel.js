@@ -17,8 +17,8 @@ import '@polymer/paper-icon-button/paper-icon-button.js';
  * ----------------|-------------|----------
  * `--ecp-header-height` | Header height | `48px`
  * `--ecp-header-bg` | Header background color | `#0099ff`
- * `--ecp-header-color` | Header color | `#ffffff`
- * `--ecp-header` | Mixin applied to header | `{}`
+ * `--epc-header-color` | Header color | `#ffffff`
+ * `--epc-header` | Mixin applied to header | `{}`
  * `--ecp-toggle-btn` | Mixin applied to expand content button | `{}`
  * `--ecp-header-title` | Mixin applied to the header title | `{}`
  * `--ecp-header-btns-wrapper` | Mixin appplied to panel header right btns container | `{}`
@@ -52,7 +52,7 @@ class EtoolsContentPanel extends PolymerElement {
           background-color: var(--ecp-header-bg, #0099ff);
           height: var(--ecp-header-height, 48px);
           padding: 4px 16px;
-          @apply --ecp-header;
+          @apply --epc-header;
         }
 
         :host(:not([show-expand-btn])) .panel-header {
@@ -62,7 +62,7 @@ class EtoolsContentPanel extends PolymerElement {
         h2.title,
         .toggle-btn,
         .panel-btns-wrapper ::slotted(*) {
-          color: var(--ecp-header-color, #ffffff);
+          color: var(--epc-header-color, #ffffff);
         }
 
         .toggle-btn,
