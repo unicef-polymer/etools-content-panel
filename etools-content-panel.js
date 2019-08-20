@@ -16,13 +16,14 @@ import '@polymer/paper-icon-button/paper-icon-button.js';
  * Custom property | Description | Default
  * ----------------|-------------|----------
  * `--ecp-header-height` | Header height | `48px`
- * `--ecp-header-bg` | Header background color | `#1e86bf`
- * `--ecp-header-color` | Header color | `#ffffff`
- * `--ecp-header` | Mixin applied to header | `{}`
+ * `--ecp-header-bg` | Header background color | `#0099ff`
+ * `--epc-header-color` | Header color | `#ffffff`
+ * `--epc-header` | Mixin applied to header | `{}`
  * `--ecp-toggle-btn` | Mixin applied to expand content button | `{}`
  * `--ecp-header-title` | Mixin applied to the header title | `{}`
  * `--ecp-header-btns-wrapper` | Mixin appplied to panel header right btns container | `{}`
  * `--ecp-content` | Mixin applied to content | `{}`
+ * `--ecp-content-bg-color` | Content Header color | `#ffffff`
  * `--ecp-disabled` | Mixin applied in disabled state | `{}`
  *
  * @customElement
