@@ -89,7 +89,7 @@ class EtoolsContentPanel extends PolymerElement {
         h2.title span {
           display: inline-block;
           width: 100%;
-          white-space: nowrap;
+          white-space: var(--ecp-title-white-space, nowrap);
           overflow: hidden;
           text-overflow: ellipsis;
         }
