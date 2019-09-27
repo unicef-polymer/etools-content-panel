@@ -1,10 +1,10 @@
 # \<etools-content-panel\>
 
 A simple panel with header to display a collapsible content.
-The header can also have buttons on the right side on the title (slotted content `slot="panel-btns""`, 
+The header can also have buttons on the right side on the title (slotted content `slot="panel-btns""`,
 check first usage example).
 
-![alt tag](etools-content-panel-demo.png)
+![alt tag](https://raw.githubusercontent.com/unicef-polymer/etools-content-panel/HEAD/etools-content-panel-demo.png)
 
 ## Usage
 ```html
@@ -49,19 +49,20 @@ You can use defined variables and mixins to change panel style.
 Custom property | Description | Default
 ----------------|-------------|----------
 `--ecp-header-height` | Header height | `48px`
-`--ecp-header-bg` | Header background color | `#1e86bf`
-`--ecp-header-color` | Header color | `#ffffff`
-`--ecp-header` | Mixin applied to header | `{}`
+`--ecp-header-bg` | Header background color | `#0099ff`
+`--epc-header-color` | Header color | `#ffffff`
+`--epc-header` | Mixin applied to header | `{}`
+`--ecp-title-white-space` | Header title white space | `nowrap`
 `--ecp-toggle-btn` | Mixin applied to expand content button | `{}`
 `--ecp-header-title` | Mixin applied to the header title | `{}`
 `--ecp-header-btns-wrapper` | Mixin appplied to panel header right btns container | `{}`
 `--ecp-content` | Mixin applied to content | `{}`
+`--ecp-content-bg-color` | Content Header color | `#ffffff`
 `--ecp-disabled` | Mixin applied in disabled state | `{}`
 
 ## Install
-TODO: create npm package
 ```bash
-$ npm i --save unicef-polymer/etools-content-panel#branch_name
+$ npm i --save @unicef-polymer/etools-content-panel
 ```
 
 ## Linting the code
