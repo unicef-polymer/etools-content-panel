@@ -25,6 +25,7 @@ import '@polymer/paper-icon-button/paper-icon-button.js';
  * `--ecp-content` | Mixin applied to content | `{}`
  * `--ecp-content-bg-color` | Content Header color | `#ffffff`
  * `--ecp-disabled` | Mixin applied in disabled state | `{}`
+ * `--ecp-content-padding` | Mixin applied to content |  `8px 24px 16px 24px`
  *
  * @customElement
  * @polymer
@@ -101,8 +102,8 @@ class EtoolsContentPanel extends PolymerElement {
         .content-wrapper {
           background-color: var(--ecp-content-bg-color, #ffffff);
           box-sizing: border-box;
-          padding: 8px 24px 16px 24px;
           @apply --ecp-content;
+          padding: var(--ecp-content-padding, 8px 24px 16px 24px);
         }
 
         :host([disabled]) .panel-header,
