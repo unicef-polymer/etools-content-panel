@@ -102,8 +102,8 @@ class EtoolsContentPanel extends PolymerElement {
         .content-wrapper {
           background-color: var(--ecp-content-bg-color, #ffffff);
           box-sizing: border-box;
-          @apply --ecp-content;
           padding: var(--ecp-content-padding, 8px 24px 16px 24px);
+          @apply --ecp-content;
         }
 
         :host([disabled]) .panel-header,
