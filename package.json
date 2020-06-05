@@ -19,7 +19,10 @@
     "@webcomponents/webcomponentsjs": "^2.4.3",
     "@polymer/iron-component-page": "^4.0.1",
     "@polymer/gen-typescript-declarations": "^1.6.2",
-    "js-yaml": "^3.14.0"
+    "js-yaml": "^3.14.0",
+    "diff": ">=3.5.0",
+    "growl": ">=1.10.0",
+    "minimist": ">=0.2.1"
   },
   "scripts": {
     "lint": "npm run lint:javascript && polymer lint && exit 0",
