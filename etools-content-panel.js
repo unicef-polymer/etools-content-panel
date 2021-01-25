@@ -53,7 +53,6 @@ class EtoolsContentPanel extends PolymerElement {
           background-color: var(--ecp-header-bg, #0099ff);
           height: var(--ecp-header-height, 48px);
           padding: 4px 16px;
-          @apply --epc-header;
         }
 
         :host(:not([show-expand-btn])) .panel-header {
@@ -72,7 +71,6 @@ class EtoolsContentPanel extends PolymerElement {
         }
 
         .toggle-btn {
-          @apply --ecp-toggle-btn;
         }
 
         h2.title {
@@ -84,7 +82,6 @@ class EtoolsContentPanel extends PolymerElement {
           font-size: 21px;
           font-weight: bold;
           min-width: 0;
-          @apply --ecp-header-title;
         }
 
         h2.title span {
@@ -96,39 +93,37 @@ class EtoolsContentPanel extends PolymerElement {
         }
 
         .panel-btns-wrapper ::slotted(*) {
-          @apply --ecp-header-btns-wrapper;
         }
 
         .content-wrapper {
           background-color: var(--ecp-content-bg-color, #ffffff);
           box-sizing: border-box;
           padding: var(--ecp-content-padding, 8px 24px 16px 24px);
-          @apply --ecp-content;
         }
 
         :host([disabled]) .panel-header,
         :host([disabled]) ::slotted(*) {
           opacity: 0.5;
-          @apply --ecp-disabled;
+          /*@apply --ecp-disabled;*/
         }
 
       </style>
 
       <div class="paper-material" elevation\$="[[elevation]]">
-        <div class="panel-header" hidden\$="[[noHeader]]">
+        <div class="panel-header" part="epc-header" hidden\$="[[noHeader]]">
 
-          <paper-icon-button class="toggle-btn" on-click="_toggle" icon="[[_getExpandBtnIcon(open)]]"
+          <paper-icon-button class="toggle-btn" part="ecp-toggle-btn" on-click="_toggle" icon="[[_getExpandBtnIcon(open)]]"
                              hidden\$="[[!showExpandBtn]]" disabled\$="[[disabled]]"></paper-icon-button>
 
-          <h2 class="title"><span>[[panelTitle]]</span></h2>
+          <h2 class="title" part="ecp-header-title"><span>[[panelTitle]]</span></h2>
 
-          <div class="panel-btns-wrapper">
+          <div class="panel-btns-wrapper" part="ecp-header-btns-wrapper">
             <slot name="panel-btns"></slot>
           </div>
 
         </div>
         <iron-collapse opened="{{open}}">
-          <div class="content-wrapper">
+          <div class="content-wrapper" part="ecp-content">
             <slot></slot>
           </div>
         </iron-collapse>
