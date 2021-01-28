@@ -18,13 +18,13 @@ import '@polymer/paper-icon-button/paper-icon-button.js';
  * `--ecp-header-height` | Header height | `48px`
  * `--ecp-header-bg` | Header background color | `#0099ff`
  * `--epc-header-color` | Header color | `#ffffff`
- * `--epc-header` | Mixin applied to header | `{}`
- * `--ecp-toggle-btn` | Mixin applied to expand content button | `{}`
- * `--ecp-header-title` | Mixin applied to the header title | `{}`
- * `--ecp-header-btns-wrapper` | Mixin appplied to panel header right btns container | `{}`
- * `--ecp-content` | Mixin applied to content | `{}`
+ * `etools-content-panel::part(epc-header)` | Mixin applied to header | `{}`
+ * `etools-content-panel::part(ecp-toggle-btn)` | Mixin applied to expand content button | `{}`
+ * `etools-content-panel::part(ecp-header-title)` | Mixin applied to the header title | `{}`
+ * `etools-content-panel::part(ecp-header-btns-wrapper)` | Mixin appplied to panel header right btns container | `{}`
+ * `etools-content-panel::part(ecp-content)` | Mixin applied to content | `{}`
  * `--ecp-content-bg-color` | Content Header color | `#ffffff`
- * `--ecp-disabled` | Mixin applied in disabled state | `{}`
+ * `etools-content-panel::part(epc-header):disabled` | Mixin applied in disabled state | `{}`
  * `--ecp-content-padding` | Mixin applied to content |  `8px 24px 16px 24px`
  *
  * @customElement
