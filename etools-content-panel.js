@@ -70,9 +70,6 @@ class EtoolsContentPanel extends PolymerElement {
           opacity: 0.8;
         }
 
-        .toggle-btn {
-        }
-
         h2.title {
           @apply --layout;
           @apply --layout-flex;
