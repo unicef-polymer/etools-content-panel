@@ -11,21 +11,21 @@ import '@polymer/paper-icon-button/paper-icon-button.js';
  *
  * ### Styling
  *
- * You can use defined variables and mixins to change panel style.
+ * You can use defined variables and css shadow parts to change panel style.
  *
  * Custom property | Description | Default
  * ----------------|-------------|----------
  * `--ecp-header-height` | Header height | `48px`
  * `--ecp-header-bg` | Header background color | `#0099ff`
- * `--epc-header-color` | Header color | `#ffffff`
- * `etools-content-panel::part(epc-header)` | Mixin applied to header | `{}`
- * `etools-content-panel::part(ecp-toggle-btn)` | Mixin applied to expand content button | `{}`
- * `etools-content-panel::part(ecp-header-title)` | Mixin applied to the header title | `{}`
- * `etools-content-panel::part(ecp-header-btns-wrapper)` | Mixin appplied to panel header right btns container | `{}`
- * `etools-content-panel::part(ecp-content)` | Mixin applied to content | `{}`
+ * `--ecp-header-color` | Header color | `#ffffff`
+ * `etools-content-panel::part(ecp-header)` | CSS Shadow Part applied to header | `{}`
+ * `etools-content-panel::part(ecp-toggle-btn)` | CSS Shadow Part applied to expand content button | `{}`
+ * `etools-content-panel::part(ecp-header-title)` | CSS Shadow Part applied to the header title | `{}`
+ * `etools-content-panel::part(ecp-header-btns-wrapper)` | CSS Shadow Part appplied to panel header right btns container | `{}`
+ * `etools-content-panel::part(ecp-content)` | CSS Shadow Part applied to content | `{}`
  * `--ecp-content-bg-color` | Content Header color | `#ffffff`
- * `etools-content-panel::part(epc-header):disabled` | Mixin applied in disabled state | `{}`
- * `--ecp-content-padding` | Mixin applied to content |  `8px 24px 16px 24px`
+ * `etools-content-panel::part(ecp-header):disabled` | CSS Shadow Part applied in disabled state | `{}`
+ * `--ecp-content-padding` | CSS Shadow Part applied to content |  `8px 24px 16px 24px`
  *
  * @customElement
  * @polymer
@@ -62,7 +62,7 @@ class EtoolsContentPanel extends PolymerElement {
         h2.title,
         .toggle-btn,
         .panel-btns-wrapper ::slotted(*) {
-          color: var(--epc-header-color, #ffffff);
+          color: var(--ecp-header-color, #ffffff);
         }
 
         .toggle-btn,
@@ -89,9 +89,6 @@ class EtoolsContentPanel extends PolymerElement {
           text-overflow: ellipsis;
         }
 
-        .panel-btns-wrapper ::slotted(*) {
-        }
-
         .content-wrapper {
           background-color: var(--ecp-content-bg-color, #ffffff);
           box-sizing: border-box;
@@ -107,7 +104,7 @@ class EtoolsContentPanel extends PolymerElement {
       </style>
 
       <div class="paper-material" elevation\$="[[elevation]]">
-        <div class="panel-header" part="epc-header" hidden\$="[[noHeader]]">
+        <div class="panel-header" part="ecp-header" hidden\$="[[noHeader]]">
 
           <paper-icon-button class="toggle-btn" part="ecp-toggle-btn" on-click="_toggle" icon="[[_getExpandBtnIcon(open)]]"
                              hidden\$="[[!showExpandBtn]]" disabled\$="[[disabled]]"></paper-icon-button>
