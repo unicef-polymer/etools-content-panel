@@ -98,7 +98,7 @@ class EtoolsContentPanel extends PolymerElement {
         :host([disabled]) .panel-header,
         :host([disabled]) ::slotted(*) {
           opacity: 0.5;
-          /*@apply --ecp-disabled;*/
+          @apply --ecp-disabled;
         }
 
       </style>
