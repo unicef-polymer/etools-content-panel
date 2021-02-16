@@ -1,7 +1,7 @@
 {
   "name": "@unicef-polymer/etools-content-panel",
   "description": "A simple panel with header to display a collapsible content.",
-  "version": "3.0.6",
+  "version": "4.0.0",
   "homepage": "https://github.com/unicef-polymer/etools-content-panel",
   "repository": {
     "type": "git",
@@ -11,18 +11,18 @@
   "main": "etools-content-panel.js",
   "module": "etools-content-panel.js",
   "devDependencies": {
+    "@polymer/gen-typescript-declarations": "^1.6.2",
+    "@polymer/iron-component-page": "^4.0.1",
+    "@polymer/iron-demo-helpers": "^3.0.0",
+    "@webcomponents/webcomponentsjs": "^2.4.3",
+    "diff": ">=3.5.0",
     "eslint": "^7.1.0",
     "eslint-config-google": "^0.7.0",
     "eslint-plugin-html": "^2.0.0",
-    "@polymer/iron-demo-helpers": "^3.0.0",
-    "wct-browser-legacy": "^0.0.1-pre.11",
-    "@webcomponents/webcomponentsjs": "^2.4.3",
-    "@polymer/iron-component-page": "^4.0.1",
-    "@polymer/gen-typescript-declarations": "^1.6.2",
-    "js-yaml": "^3.14.0",
-    "diff": ">=3.5.0",
     "growl": ">=1.10.0",
-    "minimist": ">=0.2.1"
+    "js-yaml": "^3.14.0",
+    "minimist": ">=0.2.1",
+    "wct-browser-legacy": "^0.0.1-pre.11"
   },
   "scripts": {
     "lint": "npm run lint:javascript && polymer lint && exit 0",
@@ -36,10 +36,13 @@
     "type-detect": "1.0.0"
   },
   "dependencies": {
-    "@polymer/polymer": "^3.4.1",
     "@polymer/iron-collapse": "^3.0.1",
-    "@polymer/paper-icon-button": "^3.0.2",
     "@polymer/iron-flex-layout": "^3.0.1",
-    "@polymer/paper-styles": "^3.0.1"
+    "@polymer/paper-icon-button": "^3.0.2",
+    "@polymer/paper-styles": "^3.0.1",
+    "@polymer/polymer": "^3.4.1"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

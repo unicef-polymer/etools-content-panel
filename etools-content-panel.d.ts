@@ -20,19 +20,19 @@ import {PolymerElement, html} from '@polymer/polymer/polymer-element.js';
  *
  * ### Styling
  *
- * You can use defined variables and mixins to change panel style.
+ * You can use defined variables and css shadow parts to change panel style.
  *
  * Custom property | Description | Default
  * ----------------|-------------|----------
  * `--ecp-header-height` | Header height | `48px`
  * `--ecp-header-bg` | Header background color | `#1e86bf`
  * `--ecp-header-color` | Header color | `#ffffff`
- * `--ecp-header` | Mixin applied to header | `{}`
- * `--ecp-toggle-btn` | Mixin applied to expand content button | `{}`
- * `--ecp-header-title` | Mixin applied to the header title | `{}`
- * `--ecp-header-btns-wrapper` | Mixin appplied to panel header right btns container | `{}`
- * `--ecp-content` | Mixin applied to content | `{}`
- * `--ecp-disabled` | Mixin applied in disabled state | `{}`
+ * `--ecp-header` | CSS shadow part applied to header | `{}`
+ * `--ecp-toggle-btn` | CSS shadow part applied to expand content button | `{}`
+ * `--ecp-header-title` | CSS shadow part applied to the header title | `{}`
+ * `--ecp-header-btns-wrapper` | CSS shadow part appplied to panel header right btns container | `{}`
+ * `--ecp-content` | CSS shadow part applied to content | `{}`
+ * `--ecp-disabled` | CSS shadow part applied in disabled state | `{}`
  */
 declare class EtoolsContentPanel extends PolymerElement {
   panelTitle: string|null|undefined;
