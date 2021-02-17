@@ -51,14 +51,14 @@ Custom property | Description | Default
 `--ecp-header-height` | Header height | `48px`
 `--ecp-header-bg` | Header background color | `#0099ff`
 `--epc-header-color` | Header color | `#ffffff`
-`etools-content-panel::part(epc-header)` | Mixin applied to header | `{}`
+`etools-content-panel::part(ecp-header)` | Mixin applied to header | `{}`
 `--ecp-title-white-space` | Header title white space | `nowrap`
 `etools-content-panel::part(ecp-toggle-btn)` | Mixin applied to expand content button | `{}`
 `etools-content-panel::part(ecp-header-title)` | Mixin applied to the header title | `{}`
 `etools-content-panel::part(ecp-header-btns-wrapper)` | Mixin appplied to panel header right btns container | `{}`
 `etools-content-panel::part(ecp-content)` | Mixin applied to content | `{}`
 `--ecp-content-bg-color` | Content Header color | `#ffffff`
-`etools-content-panel::part(epc-header):disabled` | Mixin applied in disabled state | `{}`
+`etools-content-panel::part(ecp-header):disabled` | Mixin applied in disabled state | `{}`
 
 ## Install
 ```bash
