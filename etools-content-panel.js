@@ -21,7 +21,9 @@ import '@polymer/paper-icon-button/paper-icon-button.js';
  * `etools-content-panel::part(ecp-header)` | CSS Shadow Part applied to header | `{}`
  * `etools-content-panel::part(ecp-toggle-btn)` | CSS Shadow Part applied to expand content button | `{}`
  * `etools-content-panel::part(ecp-header-title)` | CSS Shadow Part applied to the header title | `{}`
- * `etools-content-panel::part(ecp-header-btns-wrapper)` | CSS Shadow Part appplied to panel header right btns container | `{}`
+ * `etools-content-panel::part(ecp-header-btns-wrapper)`
+ *        | CSS Shadow Part appplied to panel header right btns container
+ *        | `{}`
  * `etools-content-panel::part(ecp-content)` | CSS Shadow Part applied to content | `{}`
  * `--ecp-content-bg-color` | Content Header color | `#ffffff`
  * `etools-content-panel::part(ecp-header):disabled` | CSS Shadow Part applied in disabled state | `{}`
@@ -100,21 +102,24 @@ class EtoolsContentPanel extends PolymerElement {
           opacity: 0.5;
           @apply --ecp-disabled;
         }
-
       </style>
 
-      <div class="paper-material" elevation\$="[[elevation]]">
-        <div class="panel-header" part="ecp-header" hidden\$="[[noHeader]]">
-
-          <paper-icon-button class="toggle-btn" part="ecp-toggle-btn" on-click="_toggle" icon="[[_getExpandBtnIcon(open)]]"
-                             hidden\$="[[!showExpandBtn]]" disabled\$="[[disabled]]"></paper-icon-button>
+      <div class="paper-material" elevation$="[[elevation]]">
+        <div class="panel-header" part="ecp-header" hidden$="[[noHeader]]">
+          <paper-icon-button
+            class="toggle-btn"
+            part="ecp-toggle-btn"
+            on-click="_toggle"
+            icon="[[_getExpandBtnIcon(open)]]"
+            hidden$="[[!showExpandBtn]]"
+            disabled$="[[disabled]]"
+          ></paper-icon-button>
 
           <h2 class="title" part="ecp-header-title"><span>[[panelTitle]]</span></h2>
 
           <div class="panel-btns-wrapper" part="ecp-header-btns-wrapper">
             <slot name="panel-btns"></slot>
           </div>
-
         </div>
         <iron-collapse opened="{{open}}">
           <div class="content-wrapper" part="ecp-content">
