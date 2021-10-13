@@ -21,7 +21,9 @@ import '@polymer/paper-icon-button/paper-icon-button.js';
  * `etools-content-panel::part(ecp-header)` | CSS Shadow Part applied to header | `{}`
  * `etools-content-panel::part(ecp-toggle-btn)` | CSS Shadow Part applied to expand content button | `{}`
  * `etools-content-panel::part(ecp-header-title)` | CSS Shadow Part applied to the header title | `{}`
- * `etools-content-panel::part(ecp-header-btns-wrapper)` | CSS Shadow Part appplied to panel header right btns container | `{}`
+ * `etools-content-panel::part(ecp-header-btns-wrapper)`
+ *        | CSS Shadow Part appplied to panel header right btns container
+ *        | `{}`
  * `etools-content-panel::part(ecp-content)` | CSS Shadow Part applied to content | `{}`
  * `--ecp-content-bg-color` | Content Header color | `#ffffff`
  * `etools-content-panel::part(ecp-header):disabled` | CSS Shadow Part applied in disabled state | `{}`
