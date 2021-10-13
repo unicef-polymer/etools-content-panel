@@ -16,17 +16,20 @@
     "@polymer/iron-demo-helpers": "^3.0.0",
     "@webcomponents/webcomponentsjs": "^2.4.3",
     "diff": ">=3.5.0",
-    "eslint": "^7.1.0",
-    "eslint-config-google": "^0.7.0",
-    "eslint-plugin-html": "^2.0.0",
+    "eslint": "^7.20.0",
+    "eslint-config-google": "^0.13.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-html": "^6.1.1",
+    "eslint-plugin-prettier": "^3.2.0",
     "growl": ">=1.10.0",
     "js-yaml": "^3.14.0",
     "minimist": ">=0.2.1",
+    "prettier": "^2.3.2",
     "wct-browser-legacy": "^0.0.1-pre.11"
   },
   "scripts": {
-    "lint": "npm run lint:javascript && polymer lint && exit 0",
-    "lint:javascript": "eslint . --ext js,html && exit 0",
+    "lint": "eslint . --ext js,html",
+    "prepublishOnly": "npm run lint",
     "gen-typings": "gen-typescript-declarations --deleteExisting --outDir './'"
   },
   "resolutions": {
