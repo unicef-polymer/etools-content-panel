@@ -30,6 +30,7 @@
   "scripts": {
     "lint": "eslint . --ext js,html",
     "format:eslint": "eslint --ext .ts . --fix --ignore-path .gitignore",
+    "format:prettier": "prettier \"**/*.ts\" --write --ignore-path .gitignore",
     "prepublishOnly": "npm run lint",
     "gen-typings": "gen-typescript-declarations --deleteExisting --outDir './'"
   },
