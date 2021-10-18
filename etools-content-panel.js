@@ -1,4 +1,4 @@
-import {PolymerElement, html} from '@polymer/polymer/polymer-element.js';
+import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import '@polymer/iron-icons/iron-icons.js';
 import '@polymer/iron-collapse/iron-collapse.js';
 import '@polymer/iron-flex-layout/iron-flex-layout.js';
@@ -47,10 +47,9 @@ class EtoolsContentPanel extends PolymerElement {
         }
 
         .panel-header {
-          @apply --layout-horizontal;
-          @apply --layout-center;
-          @apply --layout-justified;
-          @apply --layout-wrap;
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
           box-sizing: border-box;
           background-color: var(--ecp-header-bg, #0099ff);
           height: var(--ecp-header-height, 48px);
@@ -73,19 +72,13 @@ class EtoolsContentPanel extends PolymerElement {
         }
 
         h2.title {
-          @apply --layout;
-          @apply --layout-flex;
-          text-align: center;
-          margin: 0;
-          padding: 8px 0;
+          margin: auto;
           font-size: 21px;
           font-weight: bold;
           min-width: 0;
         }
 
         h2.title span {
-          display: inline-block;
-          width: 100%;
           white-space: var(--ecp-title-white-space, nowrap);
           overflow: hidden;
           text-overflow: ellipsis;
@@ -102,20 +95,28 @@ class EtoolsContentPanel extends PolymerElement {
           opacity: 0.5;
           @apply --ecp-disabled;
         }
+
+        .flex-h {
+          display: flex;
+        }
       </style>
 
       <div class="paper-material" elevation$="[[elevation]]">
         <div class="panel-header" part="ecp-header" hidden$="[[noHeader]]">
-          <paper-icon-button
-            class="toggle-btn"
-            part="ecp-toggle-btn"
-            on-click="_toggle"
-            icon="[[_getExpandBtnIcon(open)]]"
-            hidden$="[[!showExpandBtn]]"
-            disabled$="[[disabled]]"
-          ></paper-icon-button>
-
-          <h2 class="title" part="ecp-header-title"><span>[[panelTitle]]</span></h2>
+          <div class="flex-h">
+            <paper-icon-button
+              class="toggle-btn"
+              part="ecp-toggle-btn"
+              on-click="_toggle"
+              icon="[[_getExpandBtnIcon(open)]]"
+              hidden$="[[!showExpandBtn]]"
+              disabled$="[[disabled]]"
+            ></paper-icon-button>
+            <h2 class="title" part="ecp-header-title">
+              <span>[[panelTitle]]</span>
+            </h2>
+            <slot name="after-title"></slot>
+          </div>
 
           <div class="panel-btns-wrapper" part="ecp-header-btns-wrapper">
             <slot name="panel-btns"></slot>
@@ -138,32 +139,32 @@ class EtoolsContentPanel extends PolymerElement {
     return {
       panelTitle: {
         type: String,
-        value: 'Panel title'
+        value: 'Panel title',
       },
       elevation: {
         type: Number,
-        value: 1
+        value: 1,
       },
       open: {
         type: Boolean,
         value: true,
-        notify: true
+        notify: true,
       },
       noHeader: {
         type: Boolean,
         value: false,
-        reflectToAttribute: true
+        reflectToAttribute: true,
       },
       disabled: {
         type: Boolean,
         value: false,
-        reflectToAttribute: true
+        reflectToAttribute: true,
       },
       showExpandBtn: {
         type: Boolean,
         value: false,
-        reflectToAttribute: true
-      }
+        reflectToAttribute: true,
+      },
     };
   }
 
