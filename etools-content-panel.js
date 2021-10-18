@@ -1,4 +1,4 @@
-import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
+import {PolymerElement, html} from '@polymer/polymer/polymer-element.js';
 import '@polymer/iron-icons/iron-icons.js';
 import '@polymer/iron-collapse/iron-collapse.js';
 import '@polymer/iron-flex-layout/iron-flex-layout.js';
@@ -139,32 +139,32 @@ class EtoolsContentPanel extends PolymerElement {
     return {
       panelTitle: {
         type: String,
-        value: 'Panel title',
+        value: 'Panel title'
       },
       elevation: {
         type: Number,
-        value: 1,
+        value: 1
       },
       open: {
         type: Boolean,
         value: true,
-        notify: true,
+        notify: true
       },
       noHeader: {
         type: Boolean,
         value: false,
-        reflectToAttribute: true,
+        reflectToAttribute: true
       },
       disabled: {
         type: Boolean,
         value: false,
-        reflectToAttribute: true,
+        reflectToAttribute: true
       },
       showExpandBtn: {
         type: Boolean,
         value: false,
-        reflectToAttribute: true,
-      },
+        reflectToAttribute: true
+      }
     };
   }
 
