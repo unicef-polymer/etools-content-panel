@@ -8,7 +8,6 @@
  *   etools-content-panel.js
  */
 
-
 // tslint:disable:variable-name Describing an API that's defined elsewhere.
 // tslint:disable:no-any describes the API as best we are able today
 
@@ -35,19 +34,18 @@ import {PolymerElement, html} from '@polymer/polymer/polymer-element.js';
  * `--ecp-disabled` | CSS shadow part applied in disabled state | `{}`
  */
 declare class EtoolsContentPanel extends PolymerElement {
-  panelTitle: string|null|undefined;
-  elevation: number|null|undefined;
-  open: boolean|null|undefined;
-  noHeader: boolean|null|undefined;
-  disabled: boolean|null|undefined;
-  showExpandBtn: boolean|null|undefined;
+  panelTitle: string | null | undefined;
+  elevation: number | null | undefined;
+  open: boolean | null | undefined;
+  noHeader: boolean | null | undefined;
+  disabled: boolean | null | undefined;
+  showExpandBtn: boolean | null | undefined;
   _toggle(): void;
   _getExpandBtnIcon(open: any): any;
 }
 
 declare global {
-
   interface HTMLElementTagNameMap {
-    "etools-content-panel": EtoolsContentPanel;
+    'etools-content-panel': EtoolsContentPanel;
   }
 }
