@@ -1,9 +1,8 @@
-import {PolymerElement, html} from '@polymer/polymer/polymer-element.js';
+import {LitElement, html} from 'lit-element';
 import '@polymer/iron-icons/iron-icons.js';
 import '@polymer/iron-collapse/iron-collapse.js';
-import '@polymer/iron-flex-layout/iron-flex-layout.js';
-import '@polymer/paper-styles/element-styles/paper-material-styles.js';
 import '@polymer/paper-icon-button/paper-icon-button.js';
+import {elevationStyles} from './styles/elevation-styles';
 
 /**
  * `etools-content-panel`
@@ -33,11 +32,14 @@ import '@polymer/paper-icon-button/paper-icon-button.js';
  * @polymer
  * @demo demo/index.html
  */
-class EtoolsContentPanel extends PolymerElement {
-  static get template() {
+class EtoolsContentPanel extends LitElement {
+  static get styles() {
+    return [elevationStyles];
+  }
+  render() {
     // language=HTML
     return html`
-      <style include="paper-material-styles">
+      <style>
         :host {
           display: block;
         }
@@ -101,19 +103,19 @@ class EtoolsContentPanel extends PolymerElement {
         }
       </style>
 
-      <div class="paper-material" elevation$="[[elevation]]">
-        <div class="panel-header" part="ecp-header" hidden$="[[noHeader]]">
+      <div class="elevation" elevation="${this.elevation}">
+        <div class="panel-header" part="ecp-header" ?hidden="${this.noHeader}">
           <div class="flex-h">
             <paper-icon-button
               class="toggle-btn"
               part="ecp-toggle-btn"
-              on-click="_toggle"
-              icon="[[_getExpandBtnIcon(open)]]"
-              hidden$="[[!showExpandBtn]]"
-              disabled$="[[disabled]]"
+              @click="${this._toggle}"
+              .icon="${this._getExpandBtnIcon(this.open)}"
+              ?hidden="${!this.showExpandBtn}"
+              ?disabled="${this.disabled}"
             ></paper-icon-button>
             <h2 class="title" part="ecp-header-title">
-              <span>[[panelTitle]]</span>
+              <span>${this.panelTitle}</span>
             </h2>
             <slot name="after-title"></slot>
           </div>
@@ -122,7 +124,7 @@ class EtoolsContentPanel extends PolymerElement {
             <slot name="panel-btns"></slot>
           </div>
         </div>
-        <iron-collapse opened="{{open}}">
+        <iron-collapse ?opened="${this.open}">
           <div class="content-wrapper" part="ecp-content">
             <slot></slot>
           </div>
@@ -138,38 +140,39 @@ class EtoolsContentPanel extends PolymerElement {
   static get properties() {
     return {
       panelTitle: {
-        type: String,
-        value: 'Panel title'
+        type: String
       },
       elevation: {
-        type: Number,
-        value: 1
+        type: Number
       },
       open: {
-        type: Boolean,
-        value: true,
-        notify: true
+        type: Boolean
       },
       noHeader: {
-        type: Boolean,
-        value: false,
-        reflectToAttribute: true
+        type: Boolean
       },
       disabled: {
-        type: Boolean,
-        value: false,
-        reflectToAttribute: true
+        type: Boolean
       },
       showExpandBtn: {
         type: Boolean,
-        value: false,
-        reflectToAttribute: true
+        reflect: true,
+        attribute: 'show-expand-btn'
       }
     };
   }
+  constructor() {
+    super();
+    this.panelTitle = 'Panel Title';
+    this.elevation = 1;
+    this.open = true;
+    this.noHeader = false;
+    this.disabled = false;
+    this.showExpandBtn = false;
+  }
 
   _toggle() {
-    this.set('open', !this.open);
+    this.open = !this.open;
   }
 
   _getExpandBtnIcon(open) {

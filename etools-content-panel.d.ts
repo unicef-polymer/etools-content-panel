@@ -11,7 +11,7 @@
 // tslint:disable:variable-name Describing an API that's defined elsewhere.
 // tslint:disable:no-any describes the API as best we are able today
 
-import {PolymerElement, html} from '@polymer/polymer/polymer-element.js';
+import {LitElement} from 'lit-element';
 
 /**
  * `etools-content-panel`
@@ -33,7 +33,7 @@ import {PolymerElement, html} from '@polymer/polymer/polymer-element.js';
  * `--ecp-content` | CSS shadow part applied to content | `{}`
  * `--ecp-disabled` | CSS shadow part applied in disabled state | `{}`
  */
-declare class EtoolsContentPanel extends PolymerElement {
+declare class EtoolsContentPanel extends LitElement {
   panelTitle: string | null | undefined;
   elevation: number | null | undefined;
   open: boolean | null | undefined;

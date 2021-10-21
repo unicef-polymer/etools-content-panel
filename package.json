@@ -10,6 +10,19 @@
   "license": "Apache-2.0",
   "main": "etools-content-panel.js",
   "module": "etools-content-panel.js",
+  "scripts": {
+    "lint": "eslint . --ext js,html",
+    "format:eslint": "eslint --ext .ts . --fix --ignore-path .gitignore",
+    "format:prettier": "prettier \"**/*.ts\" --write --ignore-path .gitignore",
+    "prepublishOnly": "npm run lint",
+    "gen-typings": "gen-typescript-declarations --deleteExisting --outDir './'"
+  },
+  "dependencies": {
+    "@polymer/iron-collapse": "^3.0.1",
+    "@polymer/paper-icon-button": "^3.0.2",
+    "lit-element": "^2.3.1",
+    "@polymer/polymer": "^3.4.1"
+  },
   "devDependencies": {
     "@polymer/gen-typescript-declarations": "^1.6.2",
     "@polymer/iron-component-page": "^4.0.1",
@@ -28,20 +41,6 @@
     "prismjs": "^1.25.0",
     "path-parse": "^1.0.7",
     "wct-browser-legacy": "^0.0.1-pre.11"
-  },
-  "scripts": {
-    "lint": "eslint . --ext js,html",
-    "format:eslint": "eslint --ext .ts . --fix --ignore-path .gitignore",
-    "format:prettier": "prettier \"**/*.ts\" --write --ignore-path .gitignore",
-    "prepublishOnly": "npm run lint",
-    "gen-typings": "gen-typescript-declarations --deleteExisting --outDir './'"
-  },
-  "dependencies": {
-    "@polymer/iron-collapse": "^3.0.1",
-    "@polymer/iron-flex-layout": "^3.0.1",
-    "@polymer/paper-icon-button": "^3.0.2",
-    "@polymer/paper-styles": "^3.0.1",
-    "@polymer/polymer": "^3.4.1"
   },
   "publishConfig": {
     "access": "public"
