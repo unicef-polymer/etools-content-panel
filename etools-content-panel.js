@@ -149,7 +149,9 @@ class EtoolsContentPanel extends LitElement {
         type: Boolean
       },
       noHeader: {
-        type: Boolean
+        type: Boolean,
+        reflect: true,
+        attribute: 'no-header'
       },
       disabled: {
         type: Boolean
