@@ -140,7 +140,9 @@ class EtoolsContentPanel extends LitElement {
   static get properties() {
     return {
       panelTitle: {
-        type: String
+        type: String,
+        reflect: true,
+        attribute: 'panel-title'
       },
       elevation: {
         type: Number
