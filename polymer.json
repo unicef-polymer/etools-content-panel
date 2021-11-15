@@ -1,11 +1,7 @@
 {
+  "entrypoint": "etools-content-panel.js",
   "lint": {
-    "rules": [
-      "polymer-2"
-    ],
-    "filesToIgnore": [
-      "demo/*",
-      "test/*"
-    ]
+    "rules": ["polymer-2"],
+    "filesToIgnore": ["demo/*", "test/*"]
   }
 }
