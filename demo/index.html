@@ -1,68 +1,71 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes" />
 
-  <title>etools-content-panel demo</title>
+    <title>etools-content-panel demo</title>
 
-  <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+    <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
 
-  <script type="module" src="../node_modules/@polymer/iron-demo-helpers/demo-pages-shared-styles.js"></script>
-  <script type="module" src="../node_modules/@polymer/iron-demo-helpers/demo-snippet.js"></script>
-  <script type="module" src="../node_modules/@polymer/paper-icon-button/paper-icon-button.js"></script>
-  <script type="module" src="../etools-content-panel.js"></script>
+    <script type="module" src="../node_modules/@polymer/iron-demo-helpers/demo-pages-shared-styles.js"></script>
+    <script type="module" src="../node_modules/@polymer/iron-demo-helpers/demo-snippet.js"></script>
+    <script type="module" src="../node_modules/@polymer/paper-icon-button/paper-icon-button.js"></script>
+    <script type="module" src="../etools-content-panel.js"></script>
 
+    <style is="custom-style" include="demo-pages-shared-styles">
+      .vertical-section-container {
+        max-width: 900px;
+      }
 
-  <style is="custom-style" include="demo-pages-shared-styles">
-    .vertical-section-container {
-      max-width: 900px;
-    }
+      etools-content-panel {
+        margin-bottom: 30px;
+      }
 
-    etools-content-panel {
-      margin-bottom: 30px;
-    }
+      .centered {
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="vertical-section-container centered">
+      <h3>Basic etools-content-panel demo</h3>
+      <demo-snippet>
+        <template>
+          <etools-content-panel
+            panel-title="Panel title. Super long panel title to summarise shown content.
+            Title should be shown on single line, overflow ellipsis"
+            show-expand-btn=""
+          >
+            <div slot="panel-btns">
+              <paper-icon-button icon="add-circle"></paper-icon-button>
+              <paper-icon-button icon="create"></paper-icon-button>
+              <paper-icon-button icon="polymer"></paper-icon-button>
+            </div>
+            <div>Your content goes here...</div>
+          </etools-content-panel>
 
-    .centered {
-      margin: 0 auto;
-    }
-  </style>
+          <etools-content-panel panel-title="Panel title" no-header="" elevation="2">
+            <div>Only content, no header...</div>
+          </etools-content-panel>
 
-</head>
-<body>
-<div class="vertical-section-container centered">
-  <h3>Basic etools-content-panel demo</h3>
-  <demo-snippet>
-    <template>
-      <etools-content-panel panel-title="Panel title. Super long panel title to summarise shown content.
-            Title should be shown on single line, overflow ellipsis" show-expand-btn="">
-        <div slot="panel-btns">
-          <paper-icon-button icon="add-circle"></paper-icon-button>
-          <paper-icon-button icon="create"></paper-icon-button>
-          <paper-icon-button icon="polymer"></paper-icon-button>
-        </div>
-        <div>Your content goes here...</div>
-      </etools-content-panel>
+          <etools-content-panel panel-title="Panel title" elevation="3" disabled="" show-expand-btn="">
+            <div>Disabled state...</div>
+          </etools-content-panel>
 
-      <etools-content-panel panel-title="Panel title" no-header="" elevation="2">
-        <div>Only content, no header...</div>
-      </etools-content-panel>
+          <etools-content-panel
+            panel-title="Panel title. Super long panel title to summarise shown content.
+            Title should be shown on single line, overflow ellipsis"
+            elevation="4"
+          >
+            <div>No content expand or collapse button</div>
+          </etools-content-panel>
 
-      <etools-content-panel panel-title="Panel title" elevation="3" disabled="" show-expand-btn="">
-        <div>Disabled state...</div>
-      </etools-content-panel>
-
-      <etools-content-panel panel-title="Panel title. Super long panel title to summarise shown content.
-            Title should be shown on single line, overflow ellipsis" elevation="4">
-        <div>No content expand or collapse button</div>
-      </etools-content-panel>
-
-      <etools-content-panel panel-title="Panel title" title-style="align-center" elevation="5">
-        <div>Panel elevation increased to maximum value</div>
-      </etools-content-panel>
-    </template>
-  </demo-snippet>
-</div>
-
-</body>
+          <etools-content-panel panel-title="Panel title" title-style="align-center" elevation="5">
+            <div>Panel elevation increased to maximum value</div>
+          </etools-content-panel>
+        </template>
+      </demo-snippet>
+    </div>
+  </body>
 </html>
