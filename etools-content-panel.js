@@ -180,7 +180,7 @@ class EtoolsContentPanel extends LitElement {
   }
 
   _getExpandBtnIcon(open) {
-    return open ? 'icons:expand-less' : 'icons:expand-more';
+    return open ? 'expand-more' : 'chevron-right';
   }
 }
 
