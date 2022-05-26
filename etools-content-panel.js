@@ -78,12 +78,14 @@ class EtoolsContentPanel extends LitElement {
           font-size: 21px;
           font-weight: bold;
           min-width: 0;
+          flex: 1;
         }
 
         h2.title span {
           white-space: var(--ecp-title-white-space, nowrap);
           overflow: hidden;
           text-overflow: ellipsis;
+          display: block;
         }
 
         .content-wrapper {
@@ -98,8 +100,9 @@ class EtoolsContentPanel extends LitElement {
           @apply --ecp-disabled;
         }
 
-        .flex-h {
+        .panel-header .flex-h {
           display: flex;
+          max-width: 100%;
         }
       </style>
 
