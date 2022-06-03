@@ -42,6 +42,7 @@ class EtoolsContentPanel extends LitElement {
       <style>
         :host {
           display: block;
+          position: var(--ecp-host-position, relative);
         }
 
         *[hidden] {
