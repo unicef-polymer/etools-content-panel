@@ -42,6 +42,7 @@ class EtoolsContentPanel extends LitElement {
       <style>
         :host {
           display: block;
+          @apply --ecp-host;
         }
 
         *[hidden] {
