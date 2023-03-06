@@ -52,6 +52,7 @@ class EtoolsContentPanel extends LitElement {
         .panel-header {
           display: flex;
           justify-content: space-between;
+          align-items: center;
           flex-wrap: wrap;
           box-sizing: border-box;
           background-color: var(--ecp-header-bg, #0099ff);
@@ -60,7 +61,8 @@ class EtoolsContentPanel extends LitElement {
         }
 
         :host(:not([show-expand-btn])) .panel-header {
-          padding: 4px 16px 4px 24px;
+          padding: 4px 0px;
+          padding-inline: 24px 16px;
         }
 
         h2.title,
