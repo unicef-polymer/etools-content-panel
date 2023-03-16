@@ -108,7 +108,7 @@ class EtoolsContentPanel extends LitElement {
           max-width: 100%;
         }
 
-        :host-context([dir='rtl']) [icon="chevron-right"] {
+        :host-context([dir='rtl']) [icon='chevron-right'] {
           transform: rotate(180deg);
         }
       </style>
