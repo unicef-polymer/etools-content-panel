@@ -36,9 +36,9 @@
     "eslint-plugin-prettier": "^4.0.0",
     "growl": ">=1.10.0",
     "js-yaml": "^3.14.0",
-    "minimist": ">=0.2.1",
+    "minimist": ">=1.2.6",
     "prettier": "^2.3.2",
-    "prismjs": "^1.25.0",
+    "prismjs": "^1.27.0",
     "path-parse": "^1.0.7",
     "wct-browser-legacy": "^0.0.1-pre.11"
   },
