@@ -52,6 +52,7 @@ class EtoolsContentPanel extends LitElement {
         .panel-header {
           display: flex;
           justify-content: space-between;
+          align-items: center;
           flex-wrap: wrap;
           box-sizing: border-box;
           background-color: var(--ecp-header-bg, #0099ff);
@@ -60,7 +61,8 @@ class EtoolsContentPanel extends LitElement {
         }
 
         :host(:not([show-expand-btn])) .panel-header {
-          padding: 4px 16px 4px 24px;
+          padding: 4px 0px;
+          padding-inline: 24px 16px;
         }
 
         h2.title,
@@ -105,6 +107,10 @@ class EtoolsContentPanel extends LitElement {
           display: flex;
           max-width: 100%;
         }
+
+        :host-context([dir='rtl']) [icon='chevron-right'] {
+          transform: rotate(180deg);
+        }
       </style>
 
       <div class="elevation" elevation="${this.elevation}">
@@ -114,7 +120,7 @@ class EtoolsContentPanel extends LitElement {
               class="toggle-btn"
               part="ecp-toggle-btn"
               @click="${this._toggle}"
-              .icon="${this._getExpandBtnIcon(this.open)}"
+              icon="${this._getExpandBtnIcon(this.open)}"
               ?hidden="${!this.showExpandBtn}"
               ?disabled="${this.disabled}"
             ></paper-icon-button>
